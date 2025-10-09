@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedX Rover | মঙ্গল মিশন</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ফন্ট এবং মূল কাঠামো */
+        body {
+            background-color: #000000; /* পটভূমি: কালো */
+            color: #FFFFFF; /* লেখা: সাদা */
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        /* হেডার এবং নেভিগেশন স্টাইল */
+        .header {
+            background-color: #111111; /* কিছুটা হালকা কালো */
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #FF0000; /* লাল বর্ডার */
+        }
+        .logo {
+            color: #FF0000; /* লোগোর নাম লাল */
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        .nav-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #FF0000; /* হোভার করলে লাল */
+        }
+
+        /* মূল অংশের স্টাইল */
+        main {
+            padding: 20px 5%;
+        }
+        section {
+            padding: 50px 0;
+            border-bottom: 1px dashed #333333;
+        }
+        h2 {
+            color: #FF0000; /* শিরোনাম লাল */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* বাটন স্টাইল */
+        .btn-primary {
+            background-color: #FF0000;
+            color: #FFFFFF;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background-color: #CC0000;
+        }
+
+        /* লাইভ ডেটা সেকশন */
+        .data-box {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #FF0000;
+        }
+        .data-value {
+            font-size: 3em;
+            color: #FF0000;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        .camera-view {
+            background-color: #333333;
+            height: 450px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+        }
+
+        /* শপ এবং কার্ড স্টাইল */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .product-card {
+            background-color: #111111;
+            padding: 15px;
+            margin: 15px;
+            width: 300px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #333333;
+        }
+        .product-card img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .product-price {
+             font-size: 1.5em;
+             color: #FF0000;
+             font-weight: 700;
+        }
+
+        /* ফর্ম স্টাইল */
+        .contact-form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #FF0000;
+        }
+        .contact-form input[type="text"], 
+        .contact-form input[type="email"], 
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #444444;
+            background-color: #222222;
+            color: #FFFFFF;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        /* ফুটার */
+        .footer {
+            background-color: #111111;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #333333;
+            font-size: 0.9em;
+            color: #AAAAAA;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">REDX ROVER</div>
+        <nav>
+            <a href="#home" class="nav-link">হোম</a>
+            <a href="#live-data" class="nav-link">লাইভ ডেটা</a>
+            <a href="#shop" class="nav-link">শপ</a>
+            <a href="#contact" class="nav-link">যোগাযোগ</a>
+            <a href="#research" class="nav-link">গবেষণা</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" style="text-align: center;">
+            <h1 style="color: #FFFFFF; font-size: 2.5em;">মঙ্গল গ্রহ অনুসন্ধানে <span style="color: #FF0000;">REDX ROVER</span></h1>
+            <p style="font-size: 1.2em; color: #AAAAAA;">ক্যামেরা, সেন্সর ও স্বয়ংক্রিয় প্রযুক্তির সাহায্যে মহাকাশের অজানা রহস্য উন্মোচন।</p>
+            
+            <img src="your_rover_logo.png" alt="RedX Rover লোগো" style="max-width: 50%; margin: 30px 0;">
+            
+            <div style="max-width: 800px; margin: 30px auto; text-align: left;">
+                <h3 style="color: #FF0000;">প্রজেক্ট সারসংক্ষেপ</h3>
+                <p>RedX Rover একটি অত্যাধুনিক মঙ্গল অনুসন্ধানী রোভার। এর প্রধান কাজ হলো মঙ্গল গ্রহে গিয়ে গুরুত্বপূর্ণ **তাপমাত্রা ও আর্দ্রতা** সহ বিভিন্ন ভূতাত্ত্বিক তথ্য সংগ্রহ করা। এতে উচ্চ-রেজোলিউশনের **ক্যামেরা** এবং **অডিও** রেকর্ডিংয়ের ব্যবস্থা আছে। রোভারটিকে পৃথিবী থেকে রিমোটের মাধ্যমে নিয়ন্ত্রণ করা যায় বা এটি স্বয়ংক্রিয়ভাবেও চলতে পারে।</p>
+            </div>
+            <a href="#live-data" class="btn-primary">লাইভ ডেটা দেখুন</a>
+        </section>
+        
+        <hr>
+
+        <section id="live-data">
+            <h2>সরাসরি মিশন তথ্য (Live Data)</h2>
+            
+            <div style="display: flex; justify-content: space-around;">
+                <div class="data-box">
+                    <h3>মঙ্গলের তাপমাত্রা</h3>
+                    <p class="data-value">-48°C</p>
+                    <p style="color: #AAAAAA;">সেন্সর ১ থেকে প্রাপ্ত</p>
+                </div>
+                <div class="data-box">
+                    <h3>বায়ুমণ্ডলের আর্দ্রতা</h3>
+                    <p class="data-value">0.9%</p>
+                    <p style="color: #AAAAAA;">সেন্সর ২ থেকে প্রাপ্ত</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 40px; color: #FFFFFF;">ক্যামেরা লাইভ ভিউ</h3>
+            <div class="camera-view">
+                <p style="color: #AAAAAA;">[ক্যামেরা লাইভ স্ট্রিমিং প্লেয়ার এখানে যুক্ত হবে]</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="shop">
+            <h2>আমাদের শপ</h2>
+            <p style="text-align: center; color: #AAAAAA;">RedX Rover-এর অফিসিয়াল পণ্য এবং মিশনের সংগৃহীত ডেটা সেট সংগ্রহ করুন।</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="product_shirt.jpg" alt="Rover T-Shirt">
+                    <h3>RedX মিশন টি-শার্ট</h3>
+                    <p style="color: #AAAAAA;">উচ্চমানের কালো টি-শার্ট, লাল লোগো সহ।</p>
+                    <p class="product-price">৳ ৮৫০</p>
+                    <button class="btn-primary">কার্টে যোগ করুন</button>
+                </div>
+                
+                <div class="product-card">
+                    <img src="product_cap.jpg" alt="Rover Cap">
+                    <h3>RedX ব্র্যান্ডেড ক্যাপ</h3>
+                    <p style="color: #AAAAAA;">মহাকাশচারী স্টাইল, দারুণ ফিট।</p>
+                    <p class="product-price">৳ ৪৫০</p>
+                    <button class="btn-primary">কার্টে যোগ করুন</button>
+                </div>
+                
+                <div class="product-card">
+                    <img src="product_data.jpg" alt="Research Data Pack">
+                    <h3>সংগৃহীত ডেটা প্যাক</h3>
+                    <p style="color: #AAAAAA;">তাপমাত্রা, আর্দ্রতা ও ছবি সহ রিসার্চ ডেটা।</p>
+                    <p class="product-price">৳ ১,২০০</p>
+                    <button class="btn-primary">কার্টে যোগ করুন</button>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="research">
+            <h2>গ্যালারি ও গবেষণা তথ্য</h2>
+            <div style="display: flex; justify-content: space-around; text-align: center;">
+                <div style="width: 30%;">
+                    <h3 style="color: #FFFFFF;">সংগৃহীত ভিডিও</h3>
+                    <p style="color: #AAAAAA;">রোভার দ্বারা ধারণকৃত মঙ্গলের অত্যাশ্চর্য ভিডিও দেখুন।</p>
+                    <a href="#" class="btn-primary" style="background-color: #333333; border: 1px solid #FF0000;">ভিডিও গ্যালারি</a>
+                </div>
+                <div style="width: 30%;">
+                    <h3 style="color: #FFFFFF;">উচ্চ-রেজোলিউশন ছবি</h3>
+                    <p style="color: #AAAAAA;">মঙ্গলের ভূ-প্রকৃতির অসাধারণ ছবি।</p>
+                    <a href="#" class="btn-primary" style="background-color: #333333; border: 1px solid #FF0000;">ছবি গ্যালারি</a>
+                </div>
+                <div style="width: 30%;">
+                    <h3 style="color: #FFFFFF;">বৈজ্ঞানিক ফলাফল</h3>
+                    <p style="color: #AAAAAA;">আমাদের ডেটা ভিত্তিক বৈজ্ঞানিক রিপোর্ট ও গবেষণা প্রবন্ধ।</p>
+                    <a href="#" class="btn-primary" style="background-color: #333333; border: 1px solid #FF0000;">গবেষণা দেখুন</a>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="contact">
+            <h2>যোগাযোগ করুন</h2>
+            <p style="text-align: center; color: #AAAAAA;">আপনার কোনো প্রশ্ন বা মতামত থাকলে আমাদের জানান।</p>
+
+            <form class="contact-form" style="max-width: 600px; margin: 0 auto;">
+                <label for="name">আপনার পুরো নাম:</label>
+                <input type="text" id="name" name="name" required placeholder="আপনার নাম লিখুন">
+                
+                <label for="email">ইমেল ঠিকানা:</label>
+                <input type="email" id="email" name="email" required placeholder="আপনার ইমেল লিখুন">
+                
+                <label for="subject">বার্তার বিষয়বস্তু:</label>
+                <input type="text" id="subject" name="subject" required placeholder="বিষয়ের সংক্ষিপ্ত বিবরণ">
+                
+                <label for="message">আপনার বার্তা:</label>
+                <textarea id="message" name="message" required placeholder="এখানে বিস্তারিত লিখুন..."></textarea>
+                
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 15px;">বার্তা পাঠান</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
+    </footer>
+
+</body>
+</html>
