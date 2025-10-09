@@ -3,31 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedX Rover | মঙ্গল মিশন</title>
+    <title><span style="color: black;">Red</span><span style="color: red;">X</span><span style="color: black;"> Rover</span> | মঙ্গল মিশন</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         /* ফন্ট এবং মূল কাঠামো */
         body {
-            background-color: #000000; /* পটভূমি: কালো */
+            background-image: url('mars_background.jpg'); /* মঙ্গলের ছবি ব্যাকগ্রাউন্ডে */
+            background-size: cover;
+            background-attachment: fixed; /* স্ক্রল করলেও ব্যাকগ্রাউন্ড স্থির থাকবে */
+            background-position: center center;
             color: #FFFFFF; /* লেখা: সাদা */
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* ব্যাকগ্রাউন্ড ছবির ওপর লেখা স্পষ্ট করার জন্য */
         }
         
         /* হেডার এবং নেভিগেশন স্টাইল */
         .header {
-            background-color: #111111; /* কিছুটা হালকা কালো */
+            background-color: rgba(0, 0, 0, 0.7); /* স্বচ্ছ কালো ব্যাকগ্রাউন্ড */
             padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #FF0000; /* লাল বর্ডার */
         }
-        .logo {
-            color: #FF0000; /* লোগোর নাম লাল */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-image {
+            height: 50px; /* লোগোর উচ্চতা */
+            margin-right: 10px;
+        }
+        .site-title {
             font-size: 1.8em;
             font-weight: 700;
         }
@@ -44,10 +55,14 @@
         /* মূল অংশের স্টাইল */
         main {
             padding: 20px 5%;
+            background-color: rgba(0, 0, 0, 0.5); /* ভেতরের কন্টেন্টের জন্য হালকা স্বচ্ছ কালো ব্যাকগ্রাউন্ড */
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 8px;
         }
         section {
             padding: 50px 0;
-            border-bottom: 1px dashed #333333;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
         }
         h2 {
             color: #FF0000; /* শিরোনাম লাল */
@@ -74,7 +89,7 @@
 
         /* লাইভ ডেটা সেকশন */
         .data-box {
-            background-color: #1a1a1a;
+            background-color: rgba(26, 26, 26, 0.8); /* কিছুটা স্বচ্ছ গাঢ় ধূসর */
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -87,7 +102,7 @@
             margin: 10px 0;
         }
         .camera-view {
-            background-color: #333333;
+            background-color: rgba(51, 51, 51, 0.8);
             height: 450px;
             margin-top: 30px;
             display: flex;
@@ -103,7 +118,7 @@
             justify-content: space-around;
         }
         .product-card {
-            background-color: #111111;
+            background-color: rgba(17, 17, 17, 0.8);
             padding: 15px;
             margin: 15px;
             width: 300px;
@@ -147,7 +162,7 @@
 
         /* ফুটার */
         .footer {
-            background-color: #111111;
+            background-color: rgba(0, 0, 0, 0.7);
             text-align: center;
             padding: 20px;
             border-top: 1px solid #333333;
@@ -159,7 +174,12 @@
 <body>
 
     <header class="header">
-        <div class="logo">REDX ROVER</div>
+        <div class="logo-container">
+            <img src="your_original_logo.png" alt="RedX Rover লোগো" class="logo-image">
+            <div class="site-title">
+                <span style="color: black;">Red</span><span style="color: red;">X</span><span style="color: black;"> Rover</span>
+            </div>
+        </div>
         <nav>
             <a href="#home" class="nav-link">হোম</a>
             <a href="#live-data" class="nav-link">লাইভ ডেটা</a>
@@ -171,10 +191,8 @@
 
     <main>
         <section id="home" style="text-align: center;">
-            <h1 style="color: #FFFFFF; font-size: 2.5em;">মঙ্গল গ্রহ অনুসন্ধানে <span style="color: #FF0000;">REDX ROVER</span></h1>
+            <h1 style="color: #FFFFFF; font-size: 2.5em;">মঙ্গল গ্রহ অনুসন্ধানে <span style="color: black;">Red</span><span style="color: red;">X</span><span style="color: black;"> Rover</span></h1>
             <p style="font-size: 1.2em; color: #AAAAAA;">ক্যামেরা, সেন্সর ও স্বয়ংক্রিয় প্রযুক্তির সাহায্যে মহাকাশের অজানা রহস্য উন্মোচন।</p>
-            
-            <img src="your_rover_logo.png" alt="RedX Rover লোগো" style="max-width: 50%; margin: 30px 0;">
             
             <div style="max-width: 800px; margin: 30px auto; text-align: left;">
                 <h3 style="color: #FF0000;">প্রজেক্ট সারসংক্ষেপ</h3>
@@ -289,6 +307,7 @@
 
     <footer class="footer">
         <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
+        <p style="color: #FF0000; margin-top: 10px;">Developer AMN</p>
     </footer>
 
 </body>
