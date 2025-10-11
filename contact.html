@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedX Rover | যোগাযোগ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS এর মূল অংশ - থিমের সাথে মিল রেখে */
+        body {
+            background-image: url('mars_background.jpg'); 
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center center;
+            color: #FFFFFF;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding-top: 90px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        
+        /* স্টিকি হেডার এবং নেভিগেশন স্টাইল */
+        .header {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 5%; display: flex;
+            justify-content: space-between; align-items: center;
+            border-bottom: 2px solid #FF0000;
+        }
+        .logo-container { display: flex; align-items: center; }
+        .logo-image { height: 45px; margin-right: 10px; }
+        .site-title { font-size: 1.6em; font-weight: 700; }
+        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
+        .nav-link:hover { color: #FF0000; }
+        .red-x { color: red; }
+
+        /* মূল কন্টেন্ট এরিয়া */
+        main {
+            padding: 40px 5%;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            min-height: 70vh;
+        }
+        h1, h2 { color: #FF0000; text-align: center; margin-bottom: 30px; }
+
+        /* ফর্ম স্টাইল */
+        .contact-form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #FF0000;
+        }
+        .contact-form input[type="text"], 
+        .contact-form input[type="email"], 
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #444444;
+            background-color: #222222;
+            color: #FFFFFF;
+            box-sizing: border-box;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        
+        /* বাটন স্টাইল */
+        .btn-primary {
+            background-color: #FF0000;
+            color: #FFFFFF;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+        .btn-primary:hover {
+            background-color: #CC0000;
+        }
+
+        /* ফুটার */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            text-align: center; padding: 20px;
+            border-top: 1px solid #333333; font-size: 0.9em;
+            color: #AAAAAA;
+        }
+        .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="image_291d23.png" alt="RedX Rover লোগো" class="logo-image">
+            <div class="site-title">
+                <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">হোম</a>
+            <a href="gallery.html" class="nav-link">লাইভ ডেটা</a>
+            <a href="research.html" class="nav-link">গবেষণা</a> 
+            <a href="shop.html" class="nav-link">শপ</a>
+            <a href="contact.html" class="nav-link" style="color: #FF0000;">যোগাযোগ</a>
+        </nav>
+    </header>
+
+    <main>
+        
+        <h1>আমাদের সাথে যোগাযোগ করুন</h1>
+        <p style="text-align: center; color: #AAAAAA; margin-bottom: 40px;">আপনার কোনো প্রশ্ন, মতামত বা অনুসন্ধানের জন্য আমরা সর্বদা প্রস্তুত।</p>
+
+        <form class="contact-form">
+            <label for="name">আপনার পুরো নাম:</label>
+            <input type="text" id="name" name="name" required placeholder="আপনার নাম লিখুন">
+            
+            <label for="email">ইমেল ঠিকানা:</label>
+            <input type="email" id="email" name="email" required placeholder="আপনার ইমেল লিখুন">
+            
+            <label for="subject">বার্তার বিষয়বস্তু:</label>
+            <input type="text" id="subject" name="subject" required placeholder="বিষয়ের সংক্ষিপ্ত বিবরণ">
+            
+            <label for="message">আপনার বার্তা:</label>
+            <textarea id="message" name="message" required placeholder="এখানে বিস্তারিত লিখুন..." rows="6"></textarea>
+            
+            <button type="submit" class="btn-primary">বার্তা পাঠান</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
+        <p class="footer-developer">Developer Nishan</p>
+    </footer>
+
+</body>
+</html>
