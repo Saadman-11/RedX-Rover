@@ -16,23 +16,29 @@
             color: #FFFFFF;
             font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 90px; /* হেডার এর উচ্চতা অনুযায়ী প্যাডিং যোগ করা হয়েছে */
             line-height: 1.6;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
         
         /* হেডার এবং নেভিগেশন (হোমপেজের সাথে একই থাকবে) */
         .header {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px 5%;
+            /* স্টিকি করার জন্য নতুন CSS */
+            position: fixed; /* এটিকে স্ক্রিনের একটি নির্দিষ্ট স্থানে আটকে রাখে */
+            top: 0; /* স্ক্রিনের একদম উপরে সেট করা হয়েছে */
+            width: 100%; /* সম্পূর্ণ চওড়া হবে */
+            z-index: 1000; /* অন্য কন্টেন্টের উপরে দেখানোর জন্য */
+            
+            background-color: rgba(0, 0, 0, 0.9); /* অস্বচ্ছ কালো ব্যাকগ্রাউন্ড (স্ক্রল করার সময় ভালো দেখানোর জন্য) */
+            padding: 10px 5%; /* প্যাডিং কমানো হয়েছে যাতে স্টিকি অবস্থায় কম জায়গা নেয় */
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #FF0000;
         }
         .logo-container { display: flex; align-items: center; }
-        .logo-image { height: 50px; margin-right: 10px; }
-        .site-title { font-size: 1.8em; font-weight: 700; }
+        .logo-image { height: 45px; margin-right: 10px; } /* লোগোর উচ্চতা কমানো হয়েছে */
+        .site-title { font-size: 1.6em; font-weight: 700; } /* ফন্ট সাইজ সামান্য কমানো হয়েছে */
         .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
         .nav-link:hover { color: #FF0000; }
 
@@ -88,7 +94,7 @@
 
     <header class="header">
         <div class="logo-container">
-            <img src="your_original_logo.png" alt="RedX Rover লোগো" class="logo-image">
+            <img src="image_291d23.png" alt="RedX Rover লোগো" class="logo-image">
             <div class="site-title">
                 <span style="color: #FFFFFF;">Red</span><span style="color: red;">X</span><span style="color: #FFFFFF;"> Rover</span>
             </div>
