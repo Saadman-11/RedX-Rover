@@ -30,6 +30,7 @@
             border-bottom: 2px solid #FF0000;
         }
         .logo-container { display: flex; align-items: center; }
+        /* লোগো ফাইলের নাম: image_291d23.png */
         .logo-image { height: 45px; margin-right: 10px; }
         .site-title { font-size: 1.6em; font-weight: 700; }
         .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
@@ -62,7 +63,7 @@
         }
         .item-card img { 
             max-width: 100%; 
-            height: 300px; 
+            height: 300px; /* একটি নির্দিষ্ট উচ্চতা নির্ধারণ করা হয়েছে */
             object-fit: cover; 
             border-radius: 5px; 
             margin-bottom: 15px;
@@ -115,58 +116,40 @@
         </nav>
     </header>
 
-   <main>
+    <main>
         
-    <h1>গ্যালারি ও ভিডিও ফুটেজ</h1>
-    <p style="text-align: center; color: #AAAAAA; font-size: 1.1em;">রোভার দ্বারা সংগৃহীত উচ্চ-রেজোলিউশন ছবি এবং ভিডিও ক্লিপ।</p>
-    
-    <div class="content-grid">
+        <h1>গ্যালারি ও ভিডিও ফুটেজ</h1>
+        <p style="text-align: center; color: #AAAAAA; font-size: 1.1em;">রোভার দ্বারা সংগৃহীত উচ্চ-রেজোলিউশন ছবি এবং ভিডিও ক্লিপ।</p>
         
-        <div class="item-card">
-            <h3 style="color: #FFFFFF;">মঙ্গলের পাথুরে দিগন্ত</h3>
-            <img src="image_1cd776.jpg" alt="মঙ্গলের পাথুরে দিগন্তের ছবি">
-            <p style="color: #AAAAAA;">পাথুরে ভূমির প্রথম দৃশ্য, সোল ৬৪ এ তোলা।</p>
-        </div>
+        <div class="content-grid">
+            
+            <div class="item-card">
+                <h3 style="color: #FFFFFF;">মঙ্গলের পাথুরে দিগন্ত</h3>
+                <img src="image_1cd776.jpg" alt="মঙ্গলের পাথুরে দিগন্তের ছবি">
+                <p style="color: #AAAAAA;">পাথুরে ভূমির প্রথম দৃশ্য, সোল ৬৪ এ তোলা।</p>
+            </div>
 
-        <div class="item-card">
-            <h3 style="color: #FFFFFF;">স্বয়ংক্রিয় পথচলা</h3>
-            <img src="Gemini_Generated_Image_99bnzm99bnzm99bn.jpg" alt="রোভারের স্বয়ংক্রিয় পথচলার ছবি">
-            <p style="color: #AAAAAA;">পাহাড়ে রোভারের স্বয়ংক্রিয় পথ চলার দৃশ্য।</p>
-        </div>
+            <div class="item-card">
+                <h3 style="color: #FFFFFF;">স্বয়ংক্রিয় পথচলা</h3>
+                <img src="Gemini_Generated_Image_99bnzm99bnzm99bn.jpg" alt="রোভারের স্বয়ংক্রিয় পথচলার ছবি">
+                <p style="color: #AAAAAA;">পাহাড়ে রোভারের স্বয়ংক্রিয় পথ চলার দৃশ্য।</p>
+            </div>
 
-        <div class="item-card video-card">
-            <h3 style="color: #FFFFFF;">ভিডিও ফুটেজ (পৃষ্ঠতলের অনুসন্ধান)</h3>
-            <iframe width="100%" height="400" 
-                src="https://www.youtube.com/embed/ryX3YpZSme0" 
-                frameborder="0" allowfullscreen class="gallery-video">
-            </iframe>
-            <p style="color: #AAAAAA; margin-top: 10px;">সংগৃহীত অডিও সহ ভিডিও ক্লিপ।</p>
+            <div class="item-card video-card">
+                <h3 style="color: #FFFFFF;">ভিডিও ফুটেজ (পৃষ্ঠতলের অনুসন্ধান)</h3>
+                <iframe width="100%" height="400" 
+                    src="https://www.youtube.com/embed/ryX3YpZSme0" 
+                    frameborder="0" allowfullscreen class="gallery-video">
+                </iframe>
+                <p style="color: #AAAAAA; margin-top: 10px;">সংগৃহীত অডিও সহ ভিডিও ক্লিপ।</p>
+            </div>
+            
         </div>
-        
-    </div>
-</main>
-
-        <div class="item-card">
-            <h3 style="color: #FFFFFF;">স্বয়ংক্রিয় পথচলা</h3>
-            <img src="rover_autonomous_path.jpg" alt="রোভারের স্বয়ংক্রিয় পথচলার ছবি">
-            <p style="color: #AAAAAA;">পাহাড়ে রোভারের স্বয়ংক্রিয় পথ চলার দৃশ্য।</p>
-        </div>
-
-        <div class="item-card video-card">
-            <h3 style="color: #FFFFFF;">ভিডিও ফুটেজ (পৃষ্ঠতলের অনুসন্ধান)</h3>
-            <iframe width="100%" height="400" 
-                src="https://www.youtube.com/embed/ryX3YpZSme0" 
-                frameborder="0" allowfullscreen class="gallery-video">
-            </iframe>
-            <p style="color: #AAAAAA; margin-top: 10px;">সংগৃহীত অডিও সহ ভিডিও ক্লিপ।</p>
-        </div>
-        
-    </div>
-</main>
+    </main>
 
     <footer class="footer">
         <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
-        <p class="footer-developer">Developer Sadman and amn </p>
+        <p class="footer-developer">Developed by - AMN and S</p>
     </footer>
 
 </body>
