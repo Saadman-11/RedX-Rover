@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS এর মূল অংশ - থিমের সাথে মিল রেখে */
+        /* (CSS স্টাইলগুলি অপরিবর্তিত) */
         body {
             background-image: url('mars_background.jpg'); 
             background-size: cover;
@@ -16,30 +16,25 @@
             color: #FFFFFF;
             font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding-top: 90px; /* স্টিকি হেডারের জন্য প্যাডিং */
+            padding-top: 90px;
             line-height: 1.6;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
         
         /* স্টিকি হেডার এবং নেভিগেশন স্টাইল */
         .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
             background-color: rgba(0, 0, 0, 0.9);
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 10px 5%; display: flex;
+            justify-content: space-between; align-items: center;
             border-bottom: 2px solid #FF0000;
         }
         .logo-container { display: flex; align-items: center; }
         .logo-image { height: 45px; margin-right: 10px; }
         .site-title { font-size: 1.6em; font-weight: 700; }
-        /* নেভিগেশন লিঙ্ক: শুধুমাত্র বর্তমান পেজ-এর লিঙ্কটি #home/index.html না হয়ে শুধু index.html হবে */
-        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
+        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
         .nav-link:hover { color: #FF0000; }
+        .red-x { color: red; }
 
         /* মূল কন্টেন্ট এরিয়া */
         main {
@@ -49,10 +44,9 @@
             max-width: 1000px;
             border-radius: 8px;
             text-align: center;
-            min-height: 60vh; /* পেজের উচ্চতা নিশ্চিত করার জন্য */
+            min-height: 60vh;
         }
         h1, h3 { color: #FFFFFF; }
-        .red-x { color: red; }
 
         /* বাটন স্টাইল */
         .btn-primary {
@@ -68,17 +62,13 @@
             display: inline-block;
             margin-top: 20px;
         }
-        .btn-primary:hover {
-            background-color: #CC0000;
-        }
+        .btn-primary:hover { background-color: #CC0000; }
 
         /* ফুটার */
         .footer {
             background-color: rgba(0, 0, 0, 0.9);
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #333333;
-            font-size: 0.9em;
+            text-align: center; padding: 20px;
+            border-top: 1px solid #333333; font-size: 0.9em;
             color: #AAAAAA;
         }
         .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
@@ -95,8 +85,10 @@
         </div>
         <nav>
             <a href="index.html" class="nav-link" style="color: #FF0000;">হোম</a>
-            <a href="gallery.html" class="nav-link">লাইভ ডেটা</a>
+            <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
+            <a href="gallery.html" class="nav-link">গ্যালারি</a> 
             <a href="research.html" class="nav-link">গবেষণা</a> 
+            <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
             <a href="shop.html" class="nav-link">শপ</a>
             <a href="contact.html" class="nav-link">যোগাযোগ</a>
         </nav>
@@ -110,17 +102,15 @@
             <h3 style="color: #FF0000;">প্রোজেক্ট সারসংক্ষেপ</h3>
             <p style="color: #DDDDDD;">RedX Rover একটি অত্যাধুনিক মঙ্গল অনুসন্ধানী রোভার। এর প্রধান কাজ হলো মঙ্গল গ্রহে গিয়ে গুরুত্বপূর্ণ তাপমাত্রা ও আর্দ্রতা সহ বিভিন্ন ভূতাত্ত্বিক তথ্য সংগ্রহ করা। এতে উচ্চ-রেজোলিউশনের ক্যামেরা এবং অডিও রেকর্ডিংয়ের ব্যবস্থা আছে। রোভারটিকে পৃথিবী থেকে রিমোটের মাধ্যমে নিয়ন্ত্রণ করা যায় বা এটি স্বয়ংক্রিয়ভাবেও চলতে পারে। আমাদের লক্ষ্য হলো মঙ্গলের জলবায়ু এবং ভূতাত্ত্বিক ইতিহাস সম্পর্কে আরও গভীরভাবে জানা।</p>
         </div>
-        <a href="gallery.html" class="btn-primary">লাইভ ডেটা ও গ্যালারি দেখুন</a>
+        <a href="livedata.html" class="btn-primary">লাইভ ডেটা দেখুন</a>
+        <a href="gallery.html" class="btn-primary" style="margin-left: 20px;">গ্যালারি দেখুন</a>
+        <a href="project_details.html" class="btn-primary" style="margin-left: 20px;">বিস্তারিত বিবরণী</a>
     </main>
 
     <footer class="footer">
         <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
-        <p class="footer-developer">Developer AMN and S </p>
+        <p class="footer-developer">Developer Nishan</p>
     </footer>
 
 </body>
 </html>
-<footer class="footer">
-    <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
-    <p class="footer-developer">AMN and S</p>
-</footer>
