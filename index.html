@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* (CSS স্টাইলগুলি অপরিবর্তিত) */
+        /* (CSS স্টাইলগুলি) */
         body {
             background-image: url('mars_background.jpg'); 
             background-size: cover;
@@ -63,6 +63,82 @@
             margin-top: 20px;
         }
         .btn-primary:hover { background-color: #CC0000; }
+        
+        /* **** টিম মেম্বারের নতুন স্টাইল **** */
+        .team-container {
+            max-width: 900px;
+            margin: 40px auto 60px auto; 
+            padding: 30px;
+            background-color: rgba(26, 26, 26, 0.85); 
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); 
+            text-align: center;
+        }
+        .team-container h2 {
+            color: #FF0000;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        .team-row {
+            display: flex;
+            justify-content: center; 
+            gap: 30px; 
+            margin-bottom: 30px;
+        }
+        .member-card {
+            flex-basis: 25%; 
+            padding: 15px;
+            background-color: #111111;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; 
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid #AAAAAA; 
+        }
+        .highlighted-member {
+            flex-basis: 35%; 
+            padding: 25px;
+            background-color: #000000;
+            border: 4px solid #FF0000; 
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.9); 
+            transform: scale(1.05); 
+        }
+        .highlighted-member .profile-img {
+            width: 160px;
+            height: 160px;
+            border-color: #FFFFFF; 
+        }
+        .highlighted-member p {
+            color: #FFD700; 
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        @media (max-width: 768px) {
+            .team-row {
+                flex-direction: column; 
+                gap: 15px;
+            }
+            .member-card, .highlighted-member {
+                flex-basis: 90%;
+                width: 100%;
+                transform: none; 
+            }
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            .highlighted-member .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        /* **** টিম মেম্বারের নতুন স্টাইল শেষ **** */
+
 
         /* ফুটার */
         .footer {
@@ -98,10 +174,53 @@
         <h1>মঙ্গল গ্রহ অনুসন্ধানে <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span></h1>
         <p style="font-size: 1.2em; color: #AAAAAA;">ক্যামেরা, সেন্সর ও স্বয়ংক্রিয় প্রযুক্তির সাহায্যে মহাকাশের অজানা রহস্য উন্মোচন।</p>
         
+        <div class="team-container">
+            <h2>টিম RedX Rover সদস্যবৃন্দ</h2>
+            
+            <div class="team-row">
+                <div class="member-card highlighted-member">
+                    <img src="member_1_your_photo.jpg" alt="Soaibe Sadman" class="profile-img">
+                    <p>Soaibe Sadman</p>
+                    <p style="color: #AAAAAA; font-size: 0.9em;">(প্রোজেক্ট লিড)</p>
+                </div>
+            </div>
+            
+            <div class="team-row">
+                <div class="member-card">
+                    <img src="member_2.jpg" alt="সদস্য ২ এর ছবি" class="profile-img">
+                    <p>সদস্য ২ এর নাম</p>
+                    <p style="color: #AAAAAA; font-size: 0.9em;">(ডেটা অ্যানালিস্ট)</p>
+                </div>
+                <div class="member-card">
+                    <img src="member_3.jpg" alt="সদস্য ৩ এর ছবি" class="profile-img">
+                    <p>সদস্য ৩ এর নাম</p>
+                    <p style="color: #AAAAAA; font-size: 0.9em;">(সফটওয়্যার ডেভেলপার)</p>
+                </div>
+                <div class="member-card">
+                    <img src="member_4.jpg" alt="সদস্য ৪ এর ছবি" class="profile-img">
+                    <p>সদস্য ৪ এর নাম</p>
+                    <p style="color: #AAAAAA; font-size: 0.9em;">(হার্ডওয়্যার ইঞ্জিনিয়ার)</p>
+                </div>
+            </div>
+            
+            <div class="team-row">
+                <div class="member-card">
+                    <img src="member_5.jpg" alt="সদস্য ৫ এর ছবি" class="profile-img">
+                    <p>সদস্য ৫ এর নাম</p>
+                    <p style="color: #AAAAAA; font-size: 0.9em;">(যোগাযোগ বিশেষজ্ঞ)</p>
+                </div>
+                <div class="member-card">
+                    <img src="member_6.jpg" alt="সদস্য ৬ এর ছবি" class="profile-img">
+                    <p>সদস্য ৬ এর নাম</p>
+                    <p style="color: #AAAAAA; font-size: 0.9em;">(গ্রাফিক ডিজাইনার)</p>
+                </div>
+            </div>
+        </div>
         <div style="max-width: 800px; margin: 30px auto; text-align: left;">
             <h3 style="color: #FF0000;">প্রোজেক্ট সারসংক্ষেপ</h3>
             <p style="color: #DDDDDD;">RedX Rover একটি অত্যাধুনিক মঙ্গল অনুসন্ধানী রোভার। এর প্রধান কাজ হলো মঙ্গল গ্রহে গিয়ে গুরুত্বপূর্ণ তাপমাত্রা ও আর্দ্রতা সহ বিভিন্ন ভূতাত্ত্বিক তথ্য সংগ্রহ করা। এতে উচ্চ-রেজোলিউশনের ক্যামেরা এবং অডিও রেকর্ডিংয়ের ব্যবস্থা আছে। রোভারটিকে পৃথিবী থেকে রিমোটের মাধ্যমে নিয়ন্ত্রণ করা যায় বা এটি স্বয়ংক্রিয়ভাবেও চলতে পারে। আমাদের লক্ষ্য হলো মঙ্গলের জলবায়ু এবং ভূতাত্ত্বিক ইতিহাস সম্পর্কে আরও গভীরভাবে জানা।</p>
         </div>
+        
         <a href="livedata.html" class="btn-primary">লাইভ ডেটা দেখুন</a>
         <a href="gallery.html" class="btn-primary" style="margin-left: 20px;">গ্যালারি দেখুন</a>
         <a href="project_details.html" class="btn-primary" style="margin-left: 20px;">বিস্তারিত বিবরণী</a>
