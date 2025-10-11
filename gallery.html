@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedX Rover | লাইভ ডেটা ও গ্যালারি</title>
+    <title>RedX Rover | গ্যালারি</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -32,7 +32,7 @@
         .logo-container { display: flex; align-items: center; }
         .logo-image { height: 45px; margin-right: 10px; }
         .site-title { font-size: 1.6em; font-weight: 700; }
-        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
+        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
         .nav-link:hover { color: #FF0000; }
         .red-x { color: red; }
 
@@ -43,41 +43,46 @@
             margin: 20px auto;
             max-width: 1200px;
             border-radius: 8px;
+            min-height: 70vh;
         }
-        h1, h2, h3 { color: #FF0000; text-align: center; margin-bottom: 30px; }
-        hr { border-top: 1px dashed rgba(255, 255, 255, 0.2); margin: 50px 0; }
-
-        /* লাইভ ডেটা সেকশন */
-        .data-grid { display: flex; justify-content: space-around; gap: 20px; }
-        .data-box {
-            background-color: rgba(26, 26, 26, 0.8);
-            padding: 20px; border-radius: 10px;
-            text-align: center; border: 1px solid #FF0000;
-            flex: 1; min-width: 250px;
-        }
-        .data-value { font-size: 3em; color: #FF0000; font-weight: 700; margin: 10px 0; }
-        .camera-view {
-            background-color: rgba(51, 51, 51, 0.8);
-            height: 450px; margin-top: 30px;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 1.5em; border-radius: 8px;
-        }
+        h1, h2 { color: #FF0000; text-align: center; margin-bottom: 30px; }
         
         /* গ্যালারি কার্ডের স্টাইল */
         .content-grid {
             display: flex; flex-wrap: wrap;
-            justify-content: space-around; gap: 20px;
+            justify-content: space-around; gap: 30px;
         }
         .item-card {
             background-color: rgba(17, 17, 17, 0.8);
-            padding: 15px; margin: 15px 0;
-            width: 45%; /* বড় কার্ডের জন্য */
+            padding: 20px;
+            width: 45%; 
             border-radius: 8px; text-align: center;
             border: 1px solid #333333;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
         }
-        .item-card img { max-width: 100%; border-radius: 5px; margin-bottom: 10px; }
+        .item-card img { 
+            max-width: 100%; 
+            height: 300px; 
+            object-fit: cover; 
+            border-radius: 5px; 
+            margin-bottom: 15px;
+            border: 2px solid #FF0000; 
+        }
+        .video-card {
+            width: 95%; 
+            margin: 30px auto;
+        }
         .gallery-video {
             width: 100%; border: 3px solid #FF0000; border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .item-card {
+                width: 95%; 
+            }
+            .item-card img { 
+                height: 250px; 
+            }
         }
 
         /* ফুটার */
@@ -101,8 +106,10 @@
         </div>
         <nav>
             <a href="index.html" class="nav-link">হোম</a>
-            <a href="gallery.html" class="nav-link" style="color: #FF0000;">লাইভ ডেটা</a>
+            <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
+            <a href="gallery.html" class="nav-link" style="color: #FF0000;">গ্যালারি</a> 
             <a href="research.html" class="nav-link">গবেষণা</a> 
+            <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
             <a href="shop.html" class="nav-link">শপ</a>
             <a href="contact.html" class="nav-link">যোগাযোগ</a>
         </nav>
@@ -110,53 +117,25 @@
 
     <main>
         
-        <h1>সরাসরি মিশন তথ্য (Live Data)</h1>
-        <p style="text-align: center; color: #AAAAAA;">মঙ্গলের পৃষ্ঠ থেকে রিয়েল-টাইম তথ্য এবং স্ট্যাটাস দেখুন।</p>
-        
-        <div class="data-grid">
-            <div class="data-box">
-                <h3>মঙ্গলের তাপমাত্রা</h3>
-                <p class="data-value">-48°C</p>
-                <p style="color: #AAAAAA;">সেন্সর ১ থেকে প্রাপ্ত</p>
-            </div>
-            <div class="data-box">
-                <h3>বায়ুমণ্ডলের আর্দ্রতা</h3>
-                <p class="data-value">0.9%</p>
-                <p style="color: #AAAAAA;">সেন্সর ২ থেকে প্রাপ্ত</p>
-            </div>
-            <div class="data-box">
-                <h3>ব্যাটারি স্ট্যাটাস</h3>
-                <p class="data-value">85%</p>
-                <p style="color: #AAAAAA;">সৌর প্যানেল চার্জিং</p>
-            </div>
-        </div>
-
-        <h3 style="text-align: center; margin-top: 40px; color: #FFFFFF;">ক্যামেরা লাইভ ভিউ</h3>
-        <div class="camera-view">
-            <p style="color: #AAAAAA;">[ক্যামেরা লাইভ স্ট্রিমিং প্লেয়ার এখানে যুক্ত হবে]</p>
-        </div>
-
-        <hr>
-
-        <h2>গ্যালারি ও ভিডিও ফুটেজ</h2>
-        <p style="text-align: center; color: #AAAAAA;">রোভার দ্বারা সংগৃহীত ছবি, ভিডিও এবং গবেষণা তথ্য।</p>
+        <h1>গ্যালারি ও ভিডিও ফুটেজ</h1>
+        <p style="text-align: center; color: #AAAAAA; font-size: 1.1em;">রোভার দ্বারা সংগৃহীত উচ্চ-রেজোলিউশন ছবি এবং ভিডিও ক্লিপ।</p>
         
         <div class="content-grid">
             
             <div class="item-card">
-                <h3 style="color: #FFFFFF;">মঙ্গলের পাথুরে দিগন্ত (ছবি)</h3>
+                <h3 style="color: #FFFFFF;">মঙ্গলের পাথুরে দিগন্ত</h3>
                 <img src="image_1cd776.jpg" alt="মঙ্গলের ছবি">
                 <p style="color: #AAAAAA;">পাথুরে ভূমির প্রথম দৃশ্য, সোল ৬৪ এ তোলা।</p>
             </div>
 
             <div class="item-card">
-                <h3 style="color: #FFFFFF;">স্বয়ংক্রিয় পথচলা (ছবি)</h3>
+                <h3 style="color: #FFFFFF;">স্বয়ংক্রিয় পথচলা</h3>
                 <img src="Gemini_Generated_Image_99bnzm99bnzm99bn.jpg" alt="রোভারের ছবি">
                 <p style="color: #AAAAAA;">পাহাড়ে রোভারের স্বয়ংক্রিয় পথ চলার দৃশ্য।</p>
             </div>
 
-            <div class="item-card" style="width: 95%;">
-                <h3 style="color: #FFFFFF;">ভিডিও ফুটেজ</h3>
+            <div class="item-card video-card">
+                <h3 style="color: #FFFFFF;">ভিডিও ফুটেজ (পৃষ্ঠতলের অনুসন্ধান)</h3>
                 <iframe width="100%" height="400" 
                     src="https://www.youtube.com/embed/ryX3YpZSme0" 
                     frameborder="0" allowfullscreen class="gallery-video">
@@ -174,7 +153,3 @@
 
 </body>
 </html>
-<footer class="footer">
-    <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
-    <p class="footer-developer">AMN and S</p>
-</footer>
