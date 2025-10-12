@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedX Rover | শপ</title>
+    <title>RedX Rover | শপ</title> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FF0000">
+
     <style>
-        /* (CSS স্টাইলগুলি অপরিবর্তিত) */
+        /* (CSS স্টাইলগুলি - পূর্বের ফাইলের অনুরূপ) */
+        /* বেস স্টাইল */
         body {
             background-image: url('mars_background.jpg'); 
             background-size: cover;
@@ -24,62 +28,61 @@
         /* স্টিকি হেডার এবং নেভিগেশন স্টাইল */
         .header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 10px 5%; display: flex;
+            background-color: rgba(0, 0, 0, 0.95); 
+            padding: 10px 2%; display: flex;
             justify-content: space-between; align-items: center;
             border-bottom: 2px solid #FF0000;
         }
         .logo-container { display: flex; align-items: center; }
         .logo-image { height: 45px; margin-right: 10px; }
         .site-title { font-size: 1.6em; font-weight: 700; }
-        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
-        .nav-link:hover { color: #FF0000; }
-        .red-x { color: red; }
+        .red-x { color: red; } 
+        
+        /* নেভিগেশন বাটনের স্টাইল */
+        nav { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+        .nav-link { 
+            color: #FFFFFF; 
+            text-decoration: none; 
+            margin: 5px; 
+            padding: 8px 12px; 
+            border-radius: 4px; 
+            transition: all 0.3s;
+            font-weight: 500;
+            white-space: nowrap; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+        }
+        .nav-link:hover { 
+            color: #000000; 
+            background-color: #FF0000; 
+            border-color: #FF0000;
+        }
+        /* বর্তমান পেজের হাইলাইট স্টাইল */
+        .nav-link.active {
+            color: #FFFFFF !important; 
+            background-color: #FF0000; 
+            border-color: #FF0000;
+        }
 
         /* মূল কন্টেন্ট এরিয়া */
         main {
-            padding: 40px 5%;
+            padding: 50px 5%;
             background-color: rgba(0, 0, 0, 0.7);
             margin: 20px auto;
-            max-width: 1200px;
+            max-width: 1100px;
             border-radius: 8px;
-            min-height: 70vh;
+            min-height: 60vh;
+            color: #DDDDDD; 
+            text-align: center;
         }
-        h1, h2 { color: #FF0000; text-align: center; margin-bottom: 30px; }
+        h1, h2 { color: #FF0000; text-align: center; }
 
-        /* শপ কার্ডের স্টাইল */
-        .content-grid {
-            display: flex; flex-wrap: wrap;
-            justify-content: center; gap: 30px;
+        /* অন্যান্য পেজের জন্য প্রয়োজনীয় রেসপনসিভনেস */
+        @media (max-width: 768px) {
+            .header { padding: 10px 10px; }
+            .nav-link { margin: 3px; padding: 6px 8px; font-size: 0.9em; }
+            .logo-image { height: 35px; }
+            .site-title { font-size: 1.4em; }
         }
-        .item-card {
-            background-color: rgba(17, 17, 17, 0.8);
-            padding: 20px;
-            width: 300px;
-            border-radius: 8px; text-align: center;
-            border: 1px solid #333333;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-        }
-        .item-card img { max-width: 100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
-        .product-price {
-            font-size: 1.8em; color: #FF0000; font-weight: 700; margin: 10px 0;
-        }
-        
-        /* বাটন স্টাইল */
-        .btn-primary {
-            background-color: #FF0000;
-            color: #FFFFFF;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: background-color 0.3s;
-            display: block;
-            width: 90%;
-            margin: 0 auto;
-        }
-        .btn-primary:hover { background-color: #CC0000; }
 
         /* ফুটার */
         .footer {
@@ -101,51 +104,27 @@
             </div>
         </div>
         <nav>
-            <a href="index.html" class="nav-link">হোম</a>
+            <a href="index.html" class="nav-link">হোম</a> 
             <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
             <a href="gallery.html" class="nav-link">গ্যালারি</a> 
             <a href="research.html" class="nav-link">গবেষণা</a> 
             <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
-            <a href="shop.html" class="nav-link" style="color: #FF0000;">শপ</a>
-            <a href="contact.html" class="nav-link">যোগাযোগ</a>
+            <a href="shop.html" class="nav-link active">শপ</a> <a href="contact.html" class="nav-link">যোগাযোগ</a>
         </nav>
     </header>
 
     <main>
+        <h1>RedX Rover শপ</h1>
+        <p>RedX Rover মিশনের অফিসিয়াল মার্চেন্ডাইজ এবং পণ্য কিনুন।</p>
         
-        <h1>RedX Rover অফিশিয়াল শপ</h1>
-        <p style="text-align: center; color: #AAAAAA;">মিশনকে সমর্থন করুন এবং এক্সক্লুসিভ মার্চেন্ডাইজ সংগ্রহ করুন।</p>
-        
-        <div class="content-grid">
-            <div class="item-card">
-                <img src="product_shirt.jpg" alt="Rover T-Shirt">
-                <h3 style="color: #FFFFFF;">RedX মিশন টি-শার্ট</h3>
-                <p style="color: #AAAAAA;">উচ্চমানের কালো টি-শার্ট, লাল লোগো সহ।</p>
-                <p class="product-price">৳ ৮৫০</p>
-                <button class="btn-primary">কার্টে যোগ করুন</button>
-            </div>
-            
-            <div class="item-card">
-                <img src="product_cap.jpg" alt="Rover Cap">
-                <h3 style="color: #FFFFFF;">RedX ব্র্যান্ডেড ক্যাপ</h3>
-                <p style="color: #AAAAAA;">শক্তিশালী লাল লোগো সহ কালো ক্যাপ।</p>
-                <p class="product-price">৳ ৪৫০</p>
-                <button class="btn-primary">কার্টে যোগ করুন</button>
-            </div>
-            
-            <div class="item-card">
-                <img src="product_data.jpg" alt="Research Data Pack">
-                <h3 style="color: #FFFFFF;">সংগৃহীত ডেটা প্যাক</h3>
-                <p style="color: #AAAAAA;">তাপমাত্রা, আর্দ্রতা ও ছবি সহ রিসার্চ ডেটা।</p>
-                <p class="product-price">৳ ১,২০০</p>
-                <button class="btn-primary">কার্টে যোগ করুন</button>
-            </div>
+        <div style="margin-top: 50px; padding: 20px; border: 1px dashed #FF0000;">
+            <p style="color: #AAAAAA;">পূর্বের শপের কন্টেন্ট এখানে পেস্ট করুন।</p>
         </div>
     </main>
 
     <footer class="footer">
         <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
-        <p class="footer-developer">Developer 'sadman and amn'</p>
+        <p class="footer-developer">Developed by - AMN and S</p>
     </footer>
 
 </body>
