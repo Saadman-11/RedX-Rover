@@ -16,6 +16,12 @@
       "src": "/android-icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/image_291d23.png",
+      "sizes": "100x100",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
