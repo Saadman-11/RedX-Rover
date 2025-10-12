@@ -1,0 +1,21 @@
+{
+  "name": "RedX Rover Mission App",
+  "short_name": "RedX Rover",
+  "description": "RedX Rover-এর মঙ্গল মিশন সংক্রান্ত ওয়েবসাইট।",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FF0000",
+  "icons": [
+    {
+      "src": "/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
