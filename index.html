@@ -3,14 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedX Rover | মঙ্গল মিশন</title>
-    
-    <link rel="stylesheet" href="style.css"> 
-    
+    <title>RedX Rover | হোম</title> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#FF0000">
+
+    <style>
+        /* বেস স্টাইল */
+        body {
+            background-image: url('mars_background.jpg'); 
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center center;
+            color: #FFFFFF;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding-top: 90px; /* হেডার এরিয়া ঠিক রাখার জন্য */
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        
+        /* স্টিকি হেডার এবং নেভিগেশন স্টাইল */
+        .header {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.95); 
+            padding: 10px 2%; display: flex;
+            justify-content: space-between; align-items: center;
+            border-bottom: 2px solid #FF0000;
+        }
+        .logo-container { display: flex; align-items: center; }
+        .logo-image { height: 45px; margin-right: 10px; }
+        .site-title { font-size: 1.6em; font-weight: 700; }
+        .red-x { color: red; } 
+        
+        /* নেভিগেশন বাটনের স্টাইল */
+        nav { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+        .nav-link { 
+            color: #FFFFFF; 
+            text-decoration: none; 
+            margin: 5px; 
+            padding: 8px 12px; 
+            border-radius: 4px; 
+            transition: all 0.3s;
+            font-weight: 500;
+            white-space: nowrap; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+        }
+        .nav-link:hover { 
+            color: #000000; 
+            background-color: #FF0000; 
+            border-color: #FF0000;
+        }
+        /* বর্তমান পেজের হাইলাইট স্টাইল */
+        .nav-link.active {
+            color: #FFFFFF !important; 
+            background-color: #FF0000; 
+            border-color: #FF0000;
+        }
+
+        /* মূল কন্টেন্ট এরিয়া */
+        main {
+            padding: 50px 5%;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px auto;
+            max-width: 1100px;
+            border-radius: 8px;
+            min-height: 60vh;
+            color: #DDDDDD; 
+            text-align: center;
+        }
+        h1 { color: #FF0000; text-align: center; margin-bottom: 30px; }
+        h2 { color: #FF0000; text-align: center; margin-top: 40px; }
+
+        /* টিম মেম্বারদের সেকশন স্টাইল */
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .team-member {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            width: 180px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 3px solid transparent;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(255, 0, 0, 0.5);
+        }
+        .team-member.lead {
+            border-top: 3px solid #FF0000;
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+        .member-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid #FF0000;
+        }
+        .member-name {
+            font-weight: 700;
+            color: #FFFFFF;
+            margin: 5px 0 2px 0;
+        }
+        .member-role {
+            font-size: 0.9em;
+            color: #AAAAAA;
+        }
+
+        /* রেসপনসিভনেস */
+        @media (max-width: 768px) {
+            .header { padding: 10px 10px; }
+            .nav-link { margin: 3px; padding: 6px 8px; font-size: 0.9em; }
+            .logo-image { height: 35px; }
+            .site-title { font-size: 1.4em; }
+            .team-member { width: 140px; }
+        }
+
+        /* ফুটার */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            text-align: center; padding: 20px;
+            border-top: 1px solid #333333; font-size: 0.9em;
+            color: #AAAAAA;
+        }
+        .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
+    </style>
 </head>
 <body>
 
@@ -22,8 +148,7 @@
             </div>
         </div>
         <nav>
-            <a href="index.html" class="nav-link active">হোম</a> 
-            <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
+            <a href="index.html" class="nav-link active">হোম</a> <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
             <a href="gallery.html" class="nav-link">গ্যালারি</a> 
             <a href="research.html" class="nav-link">গবেষণা</a> 
             <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
@@ -33,53 +158,43 @@
     </header>
 
     <main>
-        <h1>মঙ্গল গ্রহ অনুসন্ধানে <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span></h1>
-        <p style="font-size: 1.2em; color: #AAAAAA;">ক্যামেরা, সেন্সর ও স্বয়ংক্রিয় প্রযুক্তির সাহায্যে মহাকাশের অজানা রহস্য উন্মোচন।</p>
+        <h1>RedX Rover: মঙ্গলের পথে প্রথম পদক্ষেপ</h1>
         
+        <p>RedX Rover একটি উচ্চাকাঙ্ক্ষী মঙ্গল অনুসন্ধান মিশন, যা মঙ্গলের পৃষ্ঠে পরিবেশগত এবং ভূতাত্ত্বিক ডেটা সংগ্রহের জন্য ডিজাইন করা হয়েছে। আমাদের লক্ষ্য হলো, স্বয়ংক্রিয় রোভার প্রযুক্তির মাধ্যমে লাল গ্রহের অজানা রহস্য উন্মোচন করা।</p>
+        
+        <p>আমরা অত্যাধুনিক সেন্সর, ক্যামেরা এবং রোবোটিক্স ব্যবহার করে এই প্রোজেক্টটিকে সফল করতে বদ্ধপরিকর। প্রতিটি ডেটা পয়েন্ট মানবজাতির মহাকাশ গবেষণায় নতুন দিগন্ত উন্মোচন করবে।</p>
+
+        <h2>আমাদের দল (Meet The Team)</h2>
         <div class="team-container">
-            <h2>টিম RedX Rover সদস্যবৃন্দ</h2>
+            <div class="team-member lead">
+                <img src="image_1cdaf7.png" alt="Soaibe Sadman" class="member-photo">
+                <div class="member-name">Soaibe Sadman</div>
+                <div class="member-role">প্রোজেক্ট লিড</div>
+            </div>
+
+            <div class="team-member">
+                <img src="image_1cd776.jpg" alt="Fahim" class="member-photo">
+                <div class="member-name">Fahim</div>
+                <div class="member-role">হার্ডওয়্যার ডিজাইন</div>
+            </div>
+
+            <div class="team-member">
+                <img src="image_b95d57.jpg" alt="Shafin" class="member-photo">
+                <div class="member-name">Shafin</div>
+                <div class="member-role">সফটওয়্যার ডেভেলপমেন্ট</div>
+            </div>
             
-            <div class="team-row">
-                
-                <div class="member-card">
-                    <img src="fahim_profile.jpg" alt="Fahim" class="profile-img">
-                    <p>Fahim</p>
-                    <p style="color: #AAAAAA; font-size: 0.8em;">(সদস্য ১)</p>
-                </div>
+            <div class="team-member">
+                <img src="abid_photo.jpg" alt="Abid" class="member-photo"> <div class="member-name">Abid</div>
+                <div class="member-role">ডেটা অ্যানালিস্ট</div>
+            </div>
 
-                <div class="member-card">
-                    <img src="shafin_profile.jpg" alt="Shafin" class="profile-img">
-                    <p>Shafin</p>
-                    <p style="color: #AAAAAA; font-size: 0.8em;">(সদস্য ২)</p>
-                </div>
-                
-                <div class="member-card highlighted-member">
-                    <img src="soaibe_sadman_profile.jpg" alt="Soaibe Sadman" class="profile-img">
-                    <p>Soaibe Sadman</p>
-                    <p style="color: #AAAAAA; font-size: 0.9em;">(টিম লিড)</p>
-                </div>
-
-                <div class="member-card">
-                    <img src="abid_profile.jpg" alt="Abid" class="profile-img">
-                    <p>Abid</p>
-                    <p style="color: #AAAAAA; font-size: 0.8em;">(সদস্য ৪)</p>
-                </div>
-                
-                <div class="member-card">
-                    <img src="toufik_profile.jpg" alt="Toufik" class="profile-img">
-                    <p>Toufik</p>
-                    <p style="color: #AAAAAA; font-size: 0.8em;">(সদস্য ৫)</p>
-                </div>
+            <div class="team-member">
+                <img src="toufik_photo.jpg" alt="Toufik" class="member-photo"> <div class="member-name">Toufik</div>
+                <div class="member-role">রোভার টেস্টিং</div>
             </div>
         </div>
-        <div style="max-width: 800px; margin: 30px auto; text-align: left;">
-            <h3 style="color: #FF0000;">প্রোজেক্ট সারসংক্ষেপ</h3>
-            <p style="color: #DDDDDD;">RedX Rover একটি অত্যাধুনিক মঙ্গল অনুসন্ধানী রোভার। এর প্রধান কাজ হলো মঙ্গল গ্রহে গিয়ে গুরুত্বপূর্ণ তাপমাত্রা ও আর্দ্রতা সহ বিভিন্ন ভূতাত্ত্বিক তথ্য সংগ্রহ করা। এতে উচ্চ-রেজোলিউশনের ক্যামেরা এবং অডিও রেকর্ডিংয়ের ব্যবস্থা আছে। রোভারটিকে পৃথিবী থেকে রিমোটের মাধ্যমে নিয়ন্ত্রণ করা যায় বা এটি স্বয়ংক্রিয়ভাবেও চলতে পারে। আমাদের লক্ষ্য হলো মঙ্গলের জলবায়ু এবং ভূতাত্ত্বিক ইতিহাস সম্পর্কে আরও গভীরভাবে জানা।</p>
-        </div>
-        
-        <a href="livedata.html" class="btn-primary">লাইভ ডেটা দেখুন</a>
-        <a href="gallery.html" class="btn-primary">গ্যালারি দেখুন</a>
-        <a href="project_details.html" class="btn-primary">বিস্তারিত বিবরণী</a>
+
     </main>
 
     <footer class="footer">
