@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedX Rover | যোগাযোগ</title> 
+    <title>RedX Rover | যোগাযোগ</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#FF0000">
-
     <style>
-        /* (CSS স্টাইলগুলি - পূর্বের ফাইলের অনুরূপ) */
-        /* বেস স্টাইল */
+        /* (CSS স্টাইলগুলি) */
         body {
             background-image: url('mars_background.jpg'); 
             background-size: cover;
@@ -28,61 +24,68 @@
         /* স্টিকি হেডার এবং নেভিগেশন স্টাইল */
         .header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.95); 
-            padding: 10px 2%; display: flex;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 5%; display: flex;
             justify-content: space-between; align-items: center;
             border-bottom: 2px solid #FF0000;
         }
         .logo-container { display: flex; align-items: center; }
         .logo-image { height: 45px; margin-right: 10px; }
         .site-title { font-size: 1.6em; font-weight: 700; }
-        .red-x { color: red; } 
-        
-        /* নেভিগেশন বাটনের স্টাইল */
-        nav { display: flex; flex-wrap: wrap; justify-content: flex-end; }
-        .nav-link { 
-            color: #FFFFFF; 
-            text-decoration: none; 
-            margin: 5px; 
-            padding: 8px 12px; 
-            border-radius: 4px; 
-            transition: all 0.3s;
-            font-weight: 500;
-            white-space: nowrap; 
-            border: 1px solid rgba(255, 255, 255, 0.2); 
-        }
-        .nav-link:hover { 
-            color: #000000; 
-            background-color: #FF0000; 
-            border-color: #FF0000;
-        }
-        /* বর্তমান পেজের হাইলাইট স্টাইল */
-        .nav-link.active {
-            color: #FFFFFF !important; 
-            background-color: #FF0000; 
-            border-color: #FF0000;
-        }
+        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
+        .nav-link:hover { color: #FF0000; }
+        .red-x { color: red; } /* শুধুমাত্র X এর জন্য লাল রঙ */
 
         /* মূল কন্টেন্ট এরিয়া */
         main {
             padding: 50px 5%;
             background-color: rgba(0, 0, 0, 0.7);
             margin: 20px auto;
-            max-width: 1100px;
+            max-width: 700px;
             border-radius: 8px;
             min-height: 60vh;
-            color: #DDDDDD; 
-            text-align: center;
         }
-        h1, h2 { color: #FF0000; text-align: center; }
+        h1 { color: #FF0000; text-align: center; margin-bottom: 40px; }
 
-        /* অন্যান্য পেজের জন্য প্রয়োজনীয় রেসপনসিভনেস */
-        @media (max-width: 768px) {
-            .header { padding: 10px 10px; }
-            .nav-link { margin: 3px; padding: 6px 8px; font-size: 0.9em; }
-            .logo-image { height: 35px; }
-            .site-title { font-size: 1.4em; }
+        /* ফর্ম স্টাইল */
+        .contact-form {
+            display: grid;
+            gap: 20px;
         }
+        .form-group {
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #DDDDDD;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333333;
+            border-radius: 4px;
+            background-color: #1a1a1a;
+            color: #FFFFFF;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        .btn-submit {
+            background-color: #FF0000;
+            color: #FFFFFF;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .btn-submit:hover { background-color: #CC0000; }
 
         /* ফুটার */
         .footer {
@@ -104,22 +107,51 @@
             </div>
         </div>
         <nav>
-            <a href="index.html" class="nav-link">হোম</a> 
+            <a href="index.html" class="nav-link">হোম</a>
             <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
             <a href="gallery.html" class="nav-link">গ্যালারি</a> 
             <a href="research.html" class="nav-link">গবেষণা</a> 
             <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
             <a href="shop.html" class="nav-link">শপ</a>
-            <a href="contact.html" class="nav-link active">যোগাযোগ</a> </nav>
+            <a href="contact.html" class="nav-link" style="color: #FF0000;">যোগাযোগ</a>
+        </nav>
     </header>
 
     <main>
-        <h1>RedX Rover যোগাযোগ</h1>
-        <p>মিশন সম্পর্কে যেকোনো জিজ্ঞাসা বা সমর্থনের জন্য আমাদের সাথে যোগাযোগ করুন।</p>
+        <h1>আমাদের সাথে যোগাযোগ করুন</h1>
+        <p style="text-align: center; color: #AAAAAA; margin-bottom: 30px;">আপনার অতি প্রয়োজনীয় প্রশ্নগুলো সরাসরি আমাদের ইমেইলে পাঠান।</p>
         
-        <div style="margin-top: 50px; padding: 20px; border: 1px dashed #FF0000;">
-            <p style="color: #AAAAAA;">পূর্বের যোগাযোগের কন্টেন্ট/ফর্ম এখানে পেস্ট করুন।</p>
+        <form class="contact-form" action="mailto:redxrover2@gmail.com" method="POST" enctype="text/plain">
+            
+            <div class="form-group">
+                <label for="name">আপনার নাম:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">আপনার ইমেইল:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">বিষয় (Subject):</label>
+                <input type="text" id="subject" name="subject" required> 
+            </div>
+            
+            <div class="form-group">
+                <label for="message">আপনার প্রশ্ন/বার্তা:</label>
+                <textarea id="message" name="body" rows="6" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">বার্তা পাঠান</button>
+            
+        </form>
+
+        <div style="text-align: center; margin-top: 40px; border-top: 1px solid #333333; padding-top: 20px;">
+            <p style="color: #DDDDDD; font-size: 1.1em;">অথবা, সরাসরি ইমেইল করুন:</p>
+            <a href="mailto:redxrover2@gmail.com" style="color: #FF0000; text-decoration: none; font-weight: 700; font-size: 1.2em;">redxrover2@gmail.com</a>
         </div>
+        
     </main>
 
     <footer class="footer">
