@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* (CSS স্টাইলগুলি) */
     body {
       background-image: url('mars_background.jpg');
       background-size: cover;
@@ -23,7 +22,6 @@
       text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
     }
 
-    /* হেডার */
     .header {
       position: fixed; top: 0; width: 100%; z-index: 1000;
       background-color: rgba(0, 0, 0, 0.9);
@@ -64,7 +62,6 @@
     }
     .btn-primary:hover { background-color: #CC0000; }
 
-    /* ফুটার */
     .footer {
       background-color: rgba(0, 0, 0, 0.9);
       text-align: center; padding: 20px;
@@ -73,7 +70,6 @@
     }
     .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
 
-    /* নতুন লাইভ ডেটা ও ক্যামেরা সেকশন */
     #live-data, #camera {
       text-align: center;
       margin: 40px 0;
@@ -113,40 +109,17 @@
     <h1>মঙ্গল গ্রহ অনুসন্ধানে <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span></h1>
     <p style="font-size: 1.2em; color: #AAAAAA;">ক্যামেরা, সেন্সর ও স্বয়ংক্রিয় প্রযুক্তির সাহায্যে মহাকাশের অজানা রহস্য উন্মোচন।</p>
 
-    <!-- 🛰️ Step 1: Live Data Section -->
+    <!-- 🛰️ Live Data Section -->
     <section id="live-data">
       <h2>🔴 Robot Live Data</h2>
       <div id="robot-data">Loading...</div>
     </section>
 
-    <!-- 📷 Step 3: Camera Watch Button -->
+    <!-- 📷 Camera Watch Button -->
     <section id="camera">
       <h2>📷 Live Camera</h2>
       <p>Watch your robot camera feed:</p>
       <a id="open-tapo" href="#" target="_blank" class="btn-primary">Open in Tapo App</a>
-
-<script>
-  const playStore = "https://play.google.com/store/apps/details?id=com.tplink.iot";
-  const appStore  = "https://apps.apple.com/app/tp-link-tapo/id1472718009";
-
-  const a = document.getElementById('open-tapo');
-  const ua = navigator.userAgent || navigator.vendor || window.opera;
-
-  if (/android/i.test(ua)) {
-    a.href = playStore;
-  } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-    a.href = appStore;
-  } else {
-    // Desktop বা অন্যান্য ডিভাইস: Tapo ওয়েবসাইট দেখান
-    a.href = "https://www.tapo.com/";
-  }
-</script>
-
-
-
-
-      
-
     </section>
 
     <a href="livedata.html" class="btn-primary">লাইভ ডেটা দেখুন</a>
@@ -159,11 +132,11 @@
     <p class="footer-developer">Developed by - AMN and S</p>
   </footer>
 
-  <!-- 🧠 Step 2: Live Data Fetch Script -->
+  <!-- 🧠 Live Data Fetch Script -->
   <script>
     async function loadData() {
       try {
-        const res = await fetch('http://192.168.4.1/data'); // 🔗 এখানে তোমার ESP8266 IP বসাও
+        const res = await fetch('http://192.168.4.1/data'); // আপনার ESP8266 IP বসান
         const data = await res.json();
         document.getElementById('robot-data').innerText = JSON.stringify(data);
       } catch (e) {
@@ -171,6 +144,41 @@
       }
     }
     setInterval(loadData, 2000);
+  </script>
+
+  <!-- 🟢 Tapo App Direct + Fallback Script -->
+  <script>
+    const androidIntent = "tapo://open"; // Direct app open Android
+    const iosScheme     = "tapo://open"; // Direct app open iOS
+    const playStore     = "https://play.google.com/store/apps/details?id=com.tplink.iot";
+    const appStore      = "https://apps.apple.com/app/tp-link-tapo/id1472718009";
+    const webLink       = "https://www.tapo.com/";
+
+    const a = document.getElementById('open-tapo');
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+    function openTapo() {
+      if (/android/i.test(ua)) {
+        const start = Date.now();
+        setTimeout(() => {
+          if (Date.now() - start < 1600) window.location = playStore;
+        }, 1500);
+        window.location = androidIntent;
+      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+        const start = Date.now();
+        setTimeout(() => {
+          if (Date.now() - start < 1600) window.location = appStore;
+        }, 1500);
+        window.location = iosScheme;
+      } else {
+        window.location = webLink;
+      }
+    }
+
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      openTapo();
+    });
   </script>
 
 </body>
