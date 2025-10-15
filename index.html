@@ -1,236 +1,154 @@
 <!DOCTYPE html>
 <html lang="bn">
-<head><link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#FF0000">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedX Rover | মঙ্গল মিশন</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* (CSS স্টাইলগুলি) */
-        body {
-            background-image: url('mars_background.jpg'); 
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center center;
-            color: #FFFFFF;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding-top: 90px;
-            line-height: 1.6;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-        }
-        
-        /* স্টিকি হেডার এবং নেভিগেশন স্টাইল */
-        .header {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 10px 5%; display: flex;
-            justify-content: space-between; align-items: center;
-            border-bottom: 2px solid #FF0000;
-        }
-        .logo-container { display: flex; align-items: center; }
-        .logo-image { height: 45px; margin-right: 10px; }
-        .site-title { font-size: 1.6em; font-weight: 700; }
-        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
-        .nav-link:hover { color: #FF0000; }
-        .red-x { color: red; } /* শুধুমাত্র X এর জন্য লাল রঙ */
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF0000">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedX Rover | মঙ্গল মিশন</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-        /* মূল কন্টেন্ট এরিয়া */
-        main {
-            padding: 50px 5%;
-            background-color: rgba(0, 0, 0, 0.6);
-            margin: 20px auto;
-            max-width: 1000px;
-            border-radius: 8px;
-            text-align: center;
-            min-height: 60vh;
-        }
-        h1, h3 { color: #FFFFFF; }
+  <style>
+    /* (CSS স্টাইলগুলি) */
+    body {
+      background-image: url('mars_background.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center center;
+      color: #FFFFFF;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding-top: 90px;
+      line-height: 1.6;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    }
 
-        /* বাটন স্টাইল */
-        .btn-primary {
-            background-color: #FF0000;
-            color: #FFFFFF;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: background-color 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        .btn-primary:hover { background-color: #CC0000; }
-        
-        /* **** টিম মেম্বারের নতুন স্টাইল **** */
-        .team-container {
-            max-width: 900px;
-            margin: 40px auto 60px auto; 
-            padding: 30px;
-            background-color: rgba(26, 26, 26, 0.85); 
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); 
-            text-align: center;
-        }
-        .team-container h2 {
-            color: #FF0000;
-            margin-bottom: 25px;
-            font-size: 1.8em;
-        }
-        .team-row {
-            display: flex;
-            justify-content: center;
-            gap: 30px; 
-            margin-bottom: 30px;
-        }
-        .member-card {
-            flex-basis: 25%; 
-            padding: 15px;
-            background-color: #111111;
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%; 
-            object-fit: cover;
-            margin-bottom: 10px;
-            border: 3px solid #AAAAAA; 
-        }
-        .highlighted-member {
-            flex-basis: 35%; 
-            padding: 25px;
-            background-color: #000000;
-            border: 4px solid #FF0000; 
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.9); 
-            transform: scale(1.05); 
-        }
-        .highlighted-member .profile-img {
-            width: 160px;
-            height: 160px;
-            border-color: #FFFFFF; 
-        }
-        .highlighted-member p {
-            color: #FFD700; 
-            font-weight: 700;
-            font-size: 1.1em;
-        }
-        @media (max-width: 768px) {
-            .team-row {
-                flex-direction: column; 
-                gap: 15px;
-            }
-            .member-card, .highlighted-member {
-                flex-basis: 90%;
-                width: 100%;
-                transform: none; 
-            }
-            .profile-img {
-                width: 100px;
-                height: 100px;
-            }
-            .highlighted-member .profile-img {
-                width: 120px;
-                height: 120px;
-            }
-        }
-        /* **** টিম মেম্বারের নতুন স্টাইল শেষ **** */
+    /* হেডার */
+    .header {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 10px 5%; display: flex;
+      justify-content: space-between; align-items: center;
+      border-bottom: 2px solid #FF0000;
+    }
+    .logo-container { display: flex; align-items: center; }
+    .logo-image { height: 45px; margin-right: 10px; }
+    .site-title { font-size: 1.6em; font-weight: 700; }
+    .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
+    .nav-link:hover { color: #FF0000; }
+    .red-x { color: red; }
 
+    main {
+      padding: 50px 5%;
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 20px auto;
+      max-width: 1000px;
+      border-radius: 8px;
+      text-align: center;
+      min-height: 60vh;
+    }
+    h1, h3 { color: #FFFFFF; }
 
-        /* ফুটার */
-        .footer {
-            background-color: rgba(0, 0, 0, 0.9);
-            text-align: center; padding: 20px;
-            border-top: 1px solid #333333; font-size: 0.9em;
-            color: #AAAAAA;
-        }
-        .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
-    </style>
+    .btn-primary {
+      background-color: #FF0000;
+      color: #FFFFFF;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .btn-primary:hover { background-color: #CC0000; }
+
+    /* ফুটার */
+    .footer {
+      background-color: rgba(0, 0, 0, 0.9);
+      text-align: center; padding: 20px;
+      border-top: 1px solid #333333; font-size: 0.9em;
+      color: #AAAAAA;
+    }
+    .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
+
+    /* নতুন লাইভ ডেটা ও ক্যামেরা সেকশন */
+    #live-data, #camera {
+      text-align: center;
+      margin: 40px 0;
+      background: rgba(26, 26, 26, 0.8);
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid #FF0000;
+    }
+    #robot-data {
+      margin-top: 15px;
+      font-size: 1.2em;
+      color: #FFD700;
+    }
+  </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="logo-container">
-            <img src="image_291d23.png" alt="RedX Rover লোগো" class="logo-image">
-            <div class="site-title">
-                <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span>
-            </div>
-        </div>
-        <nav>
-            <a href="index.html" class="nav-link" style="color: #FF0000;">হোম</a>
-            <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
-            <a href="gallery.html" class="nav-link">গ্যালারি</a> 
-            <a href="research.html" class="nav-link">গবেষণা</a> 
-            <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
-            <a href="shop.html" class="nav-link">শপ</a>
-            <a href="contact.html" class="nav-link">যোগাযোগ</a>
-        </nav>
-    </header>
+  <header class="header">
+    <div class="logo-container">
+      <img src="image_291d23.png" alt="RedX Rover লোগো" class="logo-image">
+      <div class="site-title">
+        <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html" class="nav-link" style="color: #FF0000;">হোম</a>
+      <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
+      <a href="gallery.html" class="nav-link">গ্যালারি</a>
+      <a href="research.html" class="nav-link">গবেষণা</a>
+      <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
+      <a href="shop.html" class="nav-link">শপ</a>
+      <a href="contact.html" class="nav-link">যোগাযোগ</a>
+    </nav>
+  </header>
 
-    <main>
-        <h1>মঙ্গল গ্রহ অনুসন্ধানে <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span></h1>
-        <p style="font-size: 1.2em; color: #AAAAAA;">ক্যামেরা, সেন্সর ও স্বয়ংক্রিয় প্রযুক্তির সাহায্যে মহাকাশের অজানা রহস্য উন্মোচন।</p>
-        
-        <div class="team-container">
-            <h2>টিম RedX Rover সদস্যবৃন্দ</h2>
-            
-           <div class="team-row">
-                <div class="member-card highlighted-member">
-                    <img src="soaibe_sadman_profile.jpg" alt="Soaibe Sadman" class="profile-img">
-                    <p>Soaibe Sadman</p>
-                    <p style="color: #AAAAAA; font-size: 0.9em;">(প্রোজেক্ট লিড)</p>
-                </div>
-            </div>
-            
-            <div class="team-row">
-                <div class="member-card">
-                    <img src="member_2.jpg" alt="সদস্য ২ এর ছবি" class="profile-img">
-                    <p>সদস্য ২ এর নাম</p>
-                    <p style="color: #AAAAAA; font-size: 0.9em;">(ডেটা অ্যানালিস্ট)</p>
-                </div>
-                <div class="member-card">
-                    <img src="member_3.jpg" alt="সদস্য ৩ এর ছবি" class="profile-img">
-                    <p>সদস্য ৩ এর নাম</p>
-                    <p style="color: #AAAAAA; font-size: 0.9em;">(সফটওয়্যার ডেভেলপার)</p>
-                </div>
-                <div class="member-card">
-                    <img src="member_4.jpg" alt="সদস্য ৪ এর ছবি" class="profile-img">
-                    <p>সদস্য ৪ এর নাম</p>
-                    <p style="color: #AAAAAA; font-size: 0.9em;">(হার্ডওয়্যার ইঞ্জিনিয়ার)</p>
-                </div>
-            </div>
-            
-            <div class="team-row">
-                <div class="member-card">
-                    <img src="member_5.jpg" alt="সদস্য ৫ এর ছবি" class="profile-img">
-                    <p>সদস্য ৫ এর নাম</p>
-                    <p style="color: #AAAAAA; font-size: 0.9em;">(যোগাযোগ বিশেষজ্ঞ)</p>
-                </div>
-                <div class="member-card">
-                    <img src="member_6.jpg" alt="সদস্য ৬ এর ছবি" class="profile-img">
-                    <p>সদস্য ৬ এর নাম</p>
-                    <p style="color: #AAAAAA; font-size: 0.9em;">(গ্রাফিক ডিজাইনার)</p>
-                </div>
-            </div>
-        </div>
-        <div style="max-width: 800px; margin: 30px auto; text-align: left;">
-            <h3 style="color: #FF0000;">প্রোজেক্ট সারসংক্ষেপ</h3>
-            <p style="color: #DDDDDD;">RedX Rover একটি অত্যাধুনিক মঙ্গল অনুসন্ধানী রোভার। এর প্রধান কাজ হলো মঙ্গল গ্রহে গিয়ে গুরুত্বপূর্ণ তাপমাত্রা ও আর্দ্রতা সহ বিভিন্ন ভূতাত্ত্বিক তথ্য সংগ্রহ করা। এতে উচ্চ-রেজোলিউশনের ক্যামেরা এবং অডিও রেকর্ডিংয়ের ব্যবস্থা আছে। রোভারটিকে পৃথিবী থেকে রিমোটের মাধ্যমে নিয়ন্ত্রণ করা যায় বা এটি স্বয়ংক্রিয়ভাবেও চলতে পারে। আমাদের লক্ষ্য হলো মঙ্গলের জলবায়ু এবং ভূতাত্ত্বিক ইতিহাস সম্পর্কে আরও গভীরভাবে জানা।</p>
-        </div>
-        
-        <a href="livedata.html" class="btn-primary">লাইভ ডেটা দেখুন</a>
-        <a href="gallery.html" class="btn-primary" style="margin-left: 20px;">গ্যালারি দেখুন</a>
-        <a href="project_details.html" class="btn-primary" style="margin-left: 20px;">বিস্তারিত বিবরণী</a>
-    </main>
+  <main>
+    <h1>মঙ্গল গ্রহ অনুসন্ধানে <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span></h1>
+    <p style="font-size: 1.2em; color: #AAAAAA;">ক্যামেরা, সেন্সর ও স্বয়ংক্রিয় প্রযুক্তির সাহায্যে মহাকাশের অজানা রহস্য উন্মোচন।</p>
 
-    <footer class="footer">
-        <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
-        <p class="footer-developer">Developed by - AMN and S</p>
-    </footer>
+    <!-- 🛰️ Step 1: Live Data Section -->
+    <section id="live-data">
+      <h2>🔴 Robot Live Data</h2>
+      <div id="robot-data">Loading...</div>
+    </section>
+
+    <!-- 📷 Step 3: Camera Watch Button -->
+    <section id="camera">
+      <h2>📷 Live Camera</h2>
+      <p>Watch your robot camera feed:</p>
+      <a href="tapo://open" target="_blank" class="btn-primary">Open in Tapo App</a>
+    </section>
+
+    <a href="livedata.html" class="btn-primary">লাইভ ডেটা দেখুন</a>
+    <a href="gallery.html" class="btn-primary" style="margin-left: 20px;">গ্যালারি দেখুন</a>
+    <a href="project_details.html" class="btn-primary" style="margin-left: 20px;">বিস্তারিত বিবরণী</a>
+  </main>
+
+  <footer class="footer">
+    <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
+    <p class="footer-developer">Developed by - AMN and S</p>
+  </footer>
+
+  <!-- 🧠 Step 2: Live Data Fetch Script -->
+  <script>
+    async function loadData() {
+      try {
+        const res = await fetch('http://192.168.4.1/data'); // 🔗 এখানে তোমার ESP8266 IP বসাও
+        const data = await res.json();
+        document.getElementById('robot-data').innerText = JSON.stringify(data);
+      } catch (e) {
+        document.getElementById('robot-data').innerText = "Data not found...";
+      }
+    }
+    setInterval(loadData, 2000);
+  </script>
 
 </body>
 </html>
