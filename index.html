@@ -123,7 +123,25 @@
     <section id="camera">
       <h2>📷 Live Camera</h2>
       <p>Watch your robot camera feed:</p>
-      <a href="tapo://open" target="_blank" class="btn-primary">Open in Tapo App</a>
+      <a id="open-tapo" href="#" target="_blank" class="btn-primary">Open in Tapo App</a>
+
+
+  const playStore = "https://play.google.com/store/apps/details?id=com.tplink.iot";
+  const appStore  = "https://apps.apple.com/app/tp-link-tapo/id1472718009";
+
+  const a = document.getElementById('open-tapo');
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+  if (/android/i.test(ua)) {
+    a.href = playStore;
+  } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+    a.href = appStore;
+  } else {
+    // Desktop বা অন্যান্য ডিভাইস: Tapo ওয়েবসাইট দেখান
+    a.href = "https://www.tapo.com/";
+  }
+
+
     </section>
 
     <a href="livedata.html" class="btn-primary">লাইভ ডেটা দেখুন</a>
