@@ -1,185 +1,366 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
-<head>
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#FF0000">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RedX Rover | মঙ্গল মিশন</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FF0000" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>RedX Rover | মঙ্গল মিশন</title>
 
-  <style>
-    body {
-      background-image: url('mars_background.jpg');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center center;
-      color: #FFFFFF;
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding-top: 90px;
-      line-height: 1.6;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-    }
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-    .header {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background-color: rgba(0, 0, 0, 0.9);
-      padding: 10px 5%; display: flex;
-      justify-content: space-between; align-items: center;
-      border-bottom: 2px solid #FF0000;
-    }
-    .logo-container { display: flex; align-items: center; }
-    .logo-image { height: 45px; margin-right: 10px; }
-    .site-title { font-size: 1.6em; font-weight: 700; }
-    .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
-    .nav-link:hover { color: #FF0000; }
-    .red-x { color: red; }
+    <style>
+      body {
+        background-image: url("mars_background.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center center;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding-top: 90px;
+        line-height: 1.6;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      }
 
-    main {
-      padding: 50px 5%;
-      background-color: rgba(0, 0, 0, 0.6);
-      margin: 20px auto;
-      max-width: 1000px;
-      border-radius: 8px;
-      text-align: center;
-      min-height: 60vh;
-    }
-    h1, h3 { color: #FFFFFF; }
+      .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 10px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #ff0000;
+      }
 
-    .btn-primary {
-      background-color: #FF0000;
-      color: #FFFFFF;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: background-color 0.3s;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    .btn-primary:hover { background-color: #CC0000; }
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
 
-    .footer {
-      background-color: rgba(0, 0, 0, 0.9);
-      text-align: center; padding: 20px;
-      border-top: 1px solid #333333; font-size: 0.9em;
-      color: #AAAAAA;
-    }
-    .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
+      .logo-image {
+        height: 45px;
+        margin-right: 10px;
+      }
 
-    #live-data, #camera {
-      text-align: center;
-      margin: 40px 0;
-      background: rgba(26, 26, 26, 0.8);
-      padding: 25px;
-      border-radius: 10px;
-      border: 1px solid #FF0000;
-    }
-    #robot-data {
-      margin-top: 15px;
-      font-size: 1.2em;
-      color: #FFD700;
-    }
-  </style>
-</head>
-<body>
+      .site-title {
+        font-size: 1.6em;
+        font-weight: 700;
+      }
 
-  <header class="header">
-    <div class="logo-container">
-      <img src="image_291d23.png" alt="RedX Rover লোগো" class="logo-image">
-      <div class="site-title">
-        <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span>
+      .nav-link {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #ff0000;
+      }
+
+      .red-x {
+        color: red;
+      }
+
+      main {
+        padding: 50px 5%;
+        background-color: rgba(0, 0, 0, 0.6);
+        margin: 20px auto;
+        max-width: 1000px;
+        border-radius: 8px;
+        text-align: center;
+        min-height: 60vh;
+      }
+
+      h1,
+      h3 {
+        color: #ffffff;
+      }
+
+      .btn-primary {
+        background-color: #ff0000;
+        color: #ffffff;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: background-color 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+      }
+
+      .btn-primary:hover {
+        background-color: #cc0000;
+      }
+
+      .footer {
+        background-color: rgba(0, 0, 0, 0.9);
+        text-align: center;
+        padding: 20px;
+        border-top: 1px solid #333333;
+        font-size: 0.9em;
+        color: #aaaaaa;
+      }
+
+      .footer-developer {
+        color: #ff0000;
+        margin-top: 10px;
+        font-weight: 700;
+      }
+
+      #live-data,
+      #camera {
+        text-align: center;
+        margin: 40px 0;
+        background: rgba(26, 26, 26, 0.8);
+        padding: 25px;
+        border-radius: 10px;
+        border: 1px solid #ff0000;
+      }
+
+      #robot-data {
+        margin-top: 15px;
+        font-size: 1.2em;
+        color: #ffd700;
+      }
+
+      #video-container {
+        display: none;
+        margin-top: 20px;
+      }
+
+      #camera-video {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        border-radius: 10px;
+        border: 2px solid #ff0000;
+      }
+
+      .video-controls {
+        margin-top: 15px;
+      }
+
+      .btn-secondary {
+        background-color: #333;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .btn-secondary:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo-container">
+        <img
+          src="image_291d23.png"
+          alt="RedX Rover লোগো"
+          class="logo-image"
+        />
+        <div class="site-title">
+          <span style="color: #ffffff">Red</span
+          ><span class="red-x">X</span
+          ><span style="color: #ffffff"> Rover</span>
+        </div>
       </div>
-    </div>
-    <nav>
-      <a href="index.html" class="nav-link" style="color: #FF0000;">হোম</a>
-      <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
-      <a href="gallery.html" class="nav-link">গ্যালারি</a>
-      <a href="research.html" class="nav-link">গবেষণা</a>
-      <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
-      <a href="shop.html" class="nav-link">শপ</a>
-      <a href="contact.html" class="nav-link">যোগাযোগ</a>
-    </nav>
-  </header>
+      <nav>
+        <a href="index.html" class="nav-link" style="color: #ff0000">হোম</a>
+        <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
+        <a href="gallery.html" class="nav-link">গ্যালারি</a>
+        <a href="research.html" class="nav-link">গবেষণা</a>
+        <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
+        <a href="shop.html" class="nav-link">শপ</a>
+        <a href="contact.html" class="nav-link">যোগাযোগ</a>
+      </nav>
+    </header>
 
-  <main>
-    <h1>মঙ্গল গ্রহ অনুসন্ধানে <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span></h1>
-    <p style="font-size: 1.2em; color: #AAAAAA;">ক্যামেরা, সেন্সর ও স্বয়ংক্রিয় প্রযুক্তির সাহায্যে মহাকাশের অজানা রহস্য উন্মোচন।</p>
+    <main>
+      <h1>
+        মঙ্গল গ্রহ অনুসন্ধানে <span style="color: #ffffff">Red</span
+        ><span class="red-x">X</span
+        ><span style="color: #ffffff"> Rover</span>
+      </h1>
+      <p style="font-size: 1.2em; color: #aaaaaa">
+        ক্যামেরা, সেন্সর ও স্বয়ংক্রিয় প্রযুক্তির সাহায্যে মহাকাশের অজানা
+        রহস্য উন্মোচন।
+      </p>
 
-    <!-- 🛰️ Live Data Section -->
-    <section id="live-data">
-      <h2>🔴 Robot Live Data</h2>
-      <div id="robot-data">Loading...</div>
-    </section>
+      <!-- 🛰️ Live Data Section -->
+      <section id="live-data">
+        <h2>🔴 Robot Live Data</h2>
+        <div id="robot-data">Loading...</div>
+      </section>
 
-    <!-- 📷 Camera Watch Button -->
-    <section id="camera">
-      <h2>📷 Live Camera</h2>
-      <p>Watch your robot camera feed:</p>
-      <a id="open-tapo" href="#" target="_blank" class="btn-primary">Open in Tapo App</a>
-    </section>
+      <!-- 📷 Camera Section -->
+      <section id="camera">
+        <h2>📷 Live Camera</h2>
+        <p>Watch your robot camera feed:</p>
+        <button id="start-stream" class="btn-primary">Start Live Stream</button>
+        <a
+          id="open-tapo"
+          href="#"
+          target="_blank"
+          class="btn-secondary"
+          style="margin-left: 10px"
+          >Open in Tapo App</a
+        >
 
-    <a href="livedata.html" class="btn-primary">লাইভ ডেটা দেখুন</a>
-    <a href="gallery.html" class="btn-primary" style="margin-left: 20px;">গ্যালারি দেখুন</a>
-    <a href="project_details.html" class="btn-primary" style="margin-left: 20px;">বিস্তারিত বিবরণী</a>
-  </main>
+        <div id="video-container">
+          <video id="camera-video" controls autoplay muted>
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-controls">
+            <button id="stop-stream" class="btn-secondary">Stop Stream</button>
+            <button id="fullscreen-btn" class="btn-secondary">
+              Fullscreen
+            </button>
+          </div>
+        </div>
+      </section>
 
-  <footer class="footer">
-    <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
-    <p class="footer-developer">Developed by - AMN and S</p>
-  </footer>
+      <a href="livedata.html" class="btn-primary">লাইভ ডেটা দেখুন</a>
+      <a href="gallery.html" class="btn-primary" style="margin-left: 20px"
+        >গ্যালারি দেখুন</a
+      >
+      <a
+        href="project_details.html"
+        class="btn-primary"
+        style="margin-left: 20px"
+        >বিস্তারিত বিবরণী</a
+      >
+    </main>
 
-  <!-- 🧠 Live Data Fetch Script -->
-  <script>
-    async function loadData() {
-      try {
-        const res = await fetch('http://192.168.4.1/data'); // আপনার ESP8266 IP বসান
-        const data = await res.json();
-        document.getElementById('robot-data').innerText = JSON.stringify(data);
-      } catch (e) {
-        document.getElementById('robot-data').innerText = "Data not found...";
+    <footer class="footer">
+      <p>
+        RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন
+        দিগন্ত।
+      </p>
+      <p class="footer-developer">Developed by - AMN and S</p>
+    </footer>
+
+    <!-- Load HLS.js first -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <!-- 🧠 Live Data Fetch Script -->
+    <script>
+      async function loadData() {
+        try {
+          const res = await fetch("http://192.168.4.1/data"); // আপনার ESP8266 IP বসান
+          const data = await res.json();
+          document.getElementById("robot-data").innerText = JSON.stringify(data);
+        } catch (e) {
+          document.getElementById("robot-data").innerText = "Data not found...";
+        }
       }
-    }
-    setInterval(loadData, 2000);
-  </script>
+      setInterval(loadData, 2000);
+    </script>
 
-  <!-- 🟢 Tapo App Direct + Fallback Script -->
-  <script>
-    const androidIntent = "tapo://open"; // Direct app open Android
-    const iosScheme     = "tapo://open"; // Direct app open iOS
-    const playStore     = "https://play.google.com/store/apps/details?id=com.tplink.iot";
-    const appStore      = "https://apps.apple.com/app/tp-link-tapo/id1472718009";
-    const webLink       = "https://www.tapo.com/";
+    <!-- 🟢 Camera Stream Script -->
+    <script>
+      const videoContainer = document.getElementById("video-container");
+      const videoElement = document.getElementById("camera-video");
+      const startBtn = document.getElementById("start-stream");
+      const stopBtn = document.getElementById("stop-stream");
+      const fullscreenBtn = document.getElementById("fullscreen-btn");
 
-    const a = document.getElementById('open-tapo');
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
+      // Use backend HLS URL (do NOT put RTSP here)
+      const hlsUrl = "http://192.168.1.101:8080/hls/stream1.m3u8";
 
-    function openTapo() {
-      if (/android/i.test(ua)) {
-        const start = Date.now();
-        setTimeout(() => {
-          if (Date.now() - start < 1600) window.location = playStore;
-        }, 1500);
-        window.location = androidIntent;
-      } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-        const start = Date.now();
-        setTimeout(() => {
-          if (Date.now() - start < 1600) window.location = appStore;
-        }, 1500);
-        window.location = iosScheme;
-      } else {
-        window.location = webLink;
+      startBtn.addEventListener("click", startStream);
+      stopBtn.addEventListener("click", stopStream);
+      fullscreenBtn.addEventListener("click", () => {
+        videoElement.requestFullscreen?.();
+      });
+
+      function startStream() {
+        if (!hlsUrl) {
+          alert("No HLS stream available. Check your backend server.");
+          return;
+        }
+
+        if (Hls.isSupported()) {
+          const hls = new Hls();
+          hls.loadSource(hlsUrl);
+          hls.attachMedia(videoElement);
+          hls.on(Hls.Events.MANIFEST_PARSED, () => videoElement.play());
+          hls.on(Hls.Events.ERROR, (event, data) => {
+            console.error("HLS error:", data);
+            alert("Stream connection failed. Please check camera or server.");
+          });
+        } else if (videoElement.canPlayType("application/vnd.apple.mpegurl")) {
+          videoElement.src = hlsUrl;
+          videoElement.addEventListener("loadedmetadata", () => {
+            videoElement.play();
+          });
+        } else {
+          alert(
+            "Your browser does not support HLS. Please use Chrome, Edge, or Safari."
+          );
+          return;
+        }
+
+        videoContainer.style.display = "block";
+        startBtn.textContent = "Stream Active";
+        startBtn.disabled = true;
       }
-    }
 
-    a.addEventListener('click', function(e){
-      e.preventDefault();
-      openTapo();
-    });
-  </script>
+      function stopStream() {
+        videoElement.pause();
+        videoElement.src = "";
+        videoContainer.style.display = "none";
+        startBtn.textContent = "Start Live Stream";
+        startBtn.disabled = false;
+      }
+    </script>
 
-</body>
+    <!-- 🟢 Tapo App Direct Link Script -->
+    <script>
+      const androidIntent = "tapo://open";
+      const iosScheme = "tapo://open";
+      const playStore =
+        "https://play.google.com/store/apps/details?id=com.tplink.iot";
+      const appStore = "https://apps.apple.com/app/tp-link-tapo/id1472718009";
+      const webLink = "https://www.tapo.com/";
+
+      const tapoBtn = document.getElementById("open-tapo");
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+      tapoBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const start = Date.now();
+
+        if (/android/i.test(ua)) {
+          setTimeout(() => {
+            if (Date.now() - start < 1600) window.location = playStore;
+          }, 1500);
+          window.location = androidIntent;
+        } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+          setTimeout(() => {
+            if (Date.now() - start < 1600) window.location = appStore;
+          }, 1500);
+          window.location = iosScheme;
+        } else {
+          window.location = webLink;
+        }
+      });
+    </script>
+  </body>
 </html>
