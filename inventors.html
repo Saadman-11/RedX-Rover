@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedX Rover | উদ্ভাবক ও ইনভেন্টর</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FF0000">
+
+    <style>
+        /* বেস স্টাইল (পূর্বের পেজগুলির মতো) */
+        body {
+            background-image: url('mars_background.jpg'); 
+            background-size: cover; background-attachment: fixed;
+            background-position: center center; color: #FFFFFF;
+            font-family: 'Roboto', sans-serif; margin: 0; padding-top: 90px;
+            line-height: 1.6; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        .header {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.95); padding: 10px 2%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 2px solid #FF0000;
+        }
+        .logo-container { display: flex; align-items: center; }
+        .logo-image { height: 45px; margin-right: 10px; }
+        .site-title { font-size: 1.6em; font-weight: 700; }
+        .red-x { color: red; } 
+        nav { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+        .nav-link { 
+            color: #FFFFFF; text-decoration: none; margin: 5px; 
+            padding: 8px 12px; border-radius: 4px; transition: all 0.3s;
+            font-weight: 500; white-space: nowrap; border: 1px solid rgba(255, 255, 255, 0.2); 
+        }
+        .nav-link:hover { 
+            color: #000000; background-color: #FF0000; border-color: #FF0000;
+        }
+        .nav-link.active {
+            color: #FFFFFF !important; background-color: #FF0000; border-color: #FF0000;
+        }
+        main {
+            padding: 50px 5%; background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px auto; max-width: 1100px; border-radius: 8px;
+            min-height: 60vh; color: #DDDDDD; text-align: center;
+        }
+        h1, h2 { color: #FF0000; text-align: center; }
+
+        /* ইনভেন্টর গ্রিড স্টাইল */
+        .inventor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* রেসপনসিভ গ্রিড */
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .inventor-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            border-left: 5px solid #FF0000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            transition: background-color 0.3s;
+        }
+        .inventor-card:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        .inventor-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .inventor-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid #FF0000;
+        }
+        .inventor-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        .inventor-role {
+            color: #AAAAAA;
+            font-size: 1em;
+            margin-top: 2px;
+        }
+        .inventor-bio {
+            font-size: 0.95em;
+            color: #CCCCCC;
+        }
+        
+        /* ফুটার */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.9); text-align: center; padding: 20px;
+            border-top: 1px solid #333333; font-size: 0.9em; color: #AAAAAA;
+            margin-top: 50px;
+        }
+        .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
+
+        /* রেসপনসিভনেস */
+        @media (max-width: 768px) {
+            .header { padding: 10px 10px; }
+            .nav-link { margin: 3px; padding: 6px 8px; font-size: 0.9em; }
+            .logo-image { height: 35px; }
+            .site-title { font-size: 1.4em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="image_291d23.png" alt="RedX Rover লোগো" class="logo-image">
+            <div class="site-title">
+                <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">হোম</a> 
+            <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
+            <a href="gallery.html" class="nav-link">গ্যালারি</a> 
+            <a href="research.html" class="nav-link">গবেষণা</a> 
+            <a href="inventors.html" class="nav-link active">উদ্ভাবক</a> 
+            <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
+            <a href="shop.html" class="nav-link">শপ</a>
+            <a href="contact.html" class="nav-link">যোগাযোগ</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>RedX Rover: উদ্ভাবক ও অবদানকারী</h1>
+        <p>এই পেজে RedX Rover প্রজেক্টের নকশা এবং বাস্তবায়নের পেছনে থাকা মূল উদ্ভাবকদের পরিচয় তুলে ধরা হলো।</p>
+        
+        <div class="inventor-grid">
+            
+            <div class="inventor-card">
+                <div class="inventor-info">
+                    <img src="inventor1_photo.jpg" alt="উদ্ভাবক ১" class="inventor-photo">
+                    <div>
+                        <div class="inventor-name">ইনভেন্টরের নাম ১</div>
+                        <div class="inventor-role">ভূমিকা: মেকানিক্যাল ডিজাইন লিড</div>
+                    </div>
+                </div>
+                <p class="inventor-bio">সংক্ষিপ্ত বিবরণ: ইনি রোভারের চেসিস এবং সচলতার জন্য প্রয়োজনীয় অত্যাধুনিক রকার-বগি সিস্টেম ডিজাইন করেছেন।</p>
+            </div>
+
+            <div class="inventor-card">
+                <div class="inventor-info">
+                    <img src="inventor2_photo.jpg" alt="উদ্ভাবক ২" class="inventor-photo">
+                    <div>
+                        <div class="inventor-name">ইনভেন্টরের নাম ২</div>
+                        <div class="inventor-role">ভূমিকা: ইলেক্ট্রনিক্স ও সেন্সর ইন্টিগ্রেশন</div>
+                    </div>
+                </div>
+                <p class="inventor-bio">সংক্ষিপ্ত বিবরণ: রোভারের অনবোর্ড কম্পিউটার, পাওয়ার ম্যানেজমেন্ট এবং সকল বৈজ্ঞানিক সেন্সরগুলিকে কার্যকরভাবে ইন্টিগ্রেট করার জন্য তিনি দায়ী।</p>
+            </div>
+
+            <div class="inventor-card">
+                <div class="inventor-info">
+                    <img src="inventor3_photo.jpg" alt="উদ্ভাবক ৩" class="inventor-photo">
+                    <div>
+                        <div class="inventor-name">ইনভেন্টরের নাম ৩</div>
+                        <div class="inventor-role">ভূমিকা: সফটওয়্যার ও কন্ট্রোল সিস্টেম</div>
+                    </div>
+                </div>
+                <p class="inventor-bio">সংক্ষিপ্ত বিবরণ: রোভারের স্বয়ংক্রিয় নেভিগেশন অ্যালগরিদম এবং ডেটা ট্রান্সমিশন প্রোটোকলগুলি ইনি তৈরি করেছেন।</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
+        <p class="footer-developer">Developed by - AMN and S</p>
+    </footer>
+
+</body>
+</html>
