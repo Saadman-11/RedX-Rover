@@ -3,90 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedX Rover | বৈজ্ঞানিক গবেষণা</title>
+    <title>RedX Rover | গবেষণা</title> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FF0000">
+
     <style>
-        /* CSS এর মূল অংশ - থিমের সাথে মিল রেখে */
+        /* বেস স্টাইল */
         body {
             background-image: url('mars_background.jpg'); 
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center center;
-            color: #FFFFFF;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding-top: 90px; /* হেডার এর উচ্চতা অনুযায়ী প্যাডিং যোগ করা হয়েছে */
-            line-height: 1.6;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            background-size: cover; background-attachment: fixed;
+            background-position: center center; color: #FFFFFF;
+            font-family: 'Roboto', sans-serif; margin: 0; padding-top: 90px;
+            line-height: 1.6; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
-        
-        /* হেডার এবং নেভিগেশন (হোমপেজের সাথে একই থাকবে) */
+        /* হেডার ও নেভিগেশন স্টাইল */
         .header {
-            /* স্টিকি করার জন্য নতুন CSS */
-            position: fixed; /* এটিকে স্ক্রিনের একটি নির্দিষ্ট স্থানে আটকে রাখে */
-            top: 0; /* স্ক্রিনের একদম উপরে সেট করা হয়েছে */
-            width: 100%; /* সম্পূর্ণ চওড়া হবে */
-            z-index: 1000; /* অন্য কন্টেন্টের উপরে দেখানোর জন্য */
-            
-            background-color: rgba(0, 0, 0, 0.9); /* অস্বচ্ছ কালো ব্যাকগ্রাউন্ড (স্ক্রল করার সময় ভালো দেখানোর জন্য) */
-            padding: 10px 5%; /* প্যাডিং কমানো হয়েছে যাতে স্টিকি অবস্থায় কম জায়গা নেয় */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.95); padding: 10px 2%;
+            display: flex; justify-content: space-between; align-items: center;
             border-bottom: 2px solid #FF0000;
         }
         .logo-container { display: flex; align-items: center; }
-        .logo-image { height: 45px; margin-right: 10px; } /* লোগোর উচ্চতা কমানো হয়েছে */
-        .site-title { font-size: 1.6em; font-weight: 700; } /* ফন্ট সাইজ সামান্য কমানো হয়েছে */
-        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
-        .nav-link:hover { color: #FF0000; }
-
-        /* মূল কন্টেন্ট এরিয়া */
-        main {
-            padding: 40px 5%;
-            background-color: rgba(0, 0, 0, 0.7);
-            margin: 20px auto;
-            max-width: 1000px;
-            border-radius: 8px;
+        .logo-image { height: 45px; margin-right: 10px; }
+        .site-title { font-size: 1.6em; font-weight: 700; }
+        .red-x { color: red; } 
+        nav { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+        .nav-link { 
+            color: #FFFFFF; text-decoration: none; margin: 5px; 
+            padding: 8px 12px; border-radius: 4px; transition: all 0.3s;
+            font-weight: 500; white-space: nowrap; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
         }
-        h1, h2, h3 { color: #FF0000; text-align: center; margin-bottom: 20px; }
+        .nav-link:hover { 
+            color: #000000; background-color: #FF0000; border-color: #FF0000;
+        }
+        .nav-link.active {
+            color: #FFFFFF !important; background-color: #FF0000; border-color: #FF0000;
+        }
+        main {
+            padding: 50px 5%; background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px auto; max-width: 1100px; border-radius: 8px;
+            min-height: 60vh; color: #DDDDDD; 
+        }
+        h1 { color: #FF0000; text-align: center; margin-bottom: 40px; }
+        h2 { color: #FFFFFF; margin-top: 30px; border-bottom: 2px solid rgba(255, 0, 0, 0.5); padding-bottom: 5px; }
+
+        /* মূল গবেষণা কার্ড স্টাইল */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .research-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            text-align: left;
+        }
+        .research-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+        .card-title {
+            color: #FF0000;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .card-link {
+            display: block;
+            margin-top: 15px;
+            color: #FFFFFF;
+            background-color: #FF0000;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 700;
+            transition: background-color 0.2s;
+        }
+        .card-link:hover {
+            background-color: #AA0000;
+        }
         
-        /* টেবিল স্টাইল */
+        /* ডেটা টেবিল স্টাইল */
         .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.9em;
-            text-align: left;
+            margin-top: 20px;
         }
         .data-table th, .data-table td {
-            padding: 12px 15px;
-            border: 1px solid #FF0000; /* লাল বর্ডার */
-            vertical-align: top;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            padding: 10px;
+            text-align: left;
         }
         .data-table th {
-            background-color: #333333;
+            background-color: rgba(255, 0, 0, 0.5);
             color: #FFFFFF;
-            font-weight: 700;
         }
-        .data-table tr:nth-child(even) {
-            background-color: rgba(50, 50, 50, 0.5);
-        }
-        
-        /* ফুটার (Footer) - হোমপেজের সাথে একই হবে */
+
+
+        /* ফুটার */
         .footer {
-            background-color: rgba(0, 0, 0, 0.7);
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #333333;
-            font-size: 0.9em;
-            color: #AAAAAA;
+            background-color: rgba(0, 0, 0, 0.9); text-align: center; padding: 20px;
+            border-top: 1px solid #333333; font-size: 0.9em; color: #AAAAAA;
+            margin-top: 40px;
         }
-        .footer-developer {
-            color: #FF0000;
-            margin-top: 10px;
-            font-weight: 700;
+        .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
+        @media (max-width: 768px) {
+            .header { padding: 10px 10px; }
+            .nav-link { margin: 3px; padding: 6px 8px; font-size: 0.9em; }
+            .logo-image { height: 35px; }
+            .site-title { font-size: 1.4em; }
+            .research-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -96,89 +131,86 @@
         <div class="logo-container">
             <img src="image_291d23.png" alt="RedX Rover লোগো" class="logo-image">
             <div class="site-title">
-                <span style="color: #FFFFFF;">Red</span><span style="color: red;">X</span><span style="color: #FFFFFF;"> Rover</span>
+                <span style="color: #FFFFFF;">Red</span><span class="red-x">X</span><span style="color: #FFFFFF;"> Rover</span>
             </div>
         </div>
         <nav>
-            <a href="index.html#home" class="nav-link">হোম</a>
-            <a href="index.html#live-data" class="nav-link">লাইভ ডেটা</a>
-            <a href="research.html" class="nav-link" style="color: #FF0000;">গবেষণা</a> 
-            <a href="index.html#shop" class="nav-link">শপ</a>
-            <a href="index.html#contact" class="nav-link">যোগাযোগ</a>
+            <a href="index.html" class="nav-link">হোম</a> 
+            <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
+            <a href="gallery.html" class="nav-link">গ্যালারি</a> 
+            <a href="research.html" class="nav-link active">গবেষণা</a> <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
+            <a href="shop.html" class="nav-link">শপ</a>
+            <a href="contact.html" class="nav-link">যোগাযোগ</a>
         </nav>
     </header>
 
     <main>
+        <h1>RedX Rover বৈজ্ঞানিক গবেষণা ও তথ্য বিশ্লেষণ</h1>
+        <p>RedX Rover মিশনের ডেটা বিশ্লেষণ এবং তার উপর ভিত্তি করে তৈরি করা গবেষণাগুলি নিচে সাজানো হয়েছে। প্রতিটি গবেষণার জন্য বিস্তারিত প্রতিবেদন এখানে পাওয়া যাবে।</p>
         
-        <h1>RedX Rover: মঙ্গলের পরিবেশ ও জলবায়ু গবেষণা</h1>
-        <p style="text-align: center; font-size: 1.1em; color: #AAAAAA;">
-            আপনার রোভার যে ডেটা সংগ্রহ করবে, তা থেকে কী কী বৈজ্ঞানিক তথ্য পাওয়া যেতে পারে, নিচে তার একটি বিশদ বিবরণ দেওয়া হলো।
-        </p>
+        <div class="research-grid">
+            
+            <div class="research-card">
+                <div class="card-title">১. মঙ্গলের পরিবেশগত স্থিতিশীলতা</div>
+                <p>সময় ধরে সংগৃহীত তাপমাত্রা এবং বায়ুচাপের ডেটার বিশ্লেষণ। মঙ্গলের দিন-রাতের পরিবেশগত পরিবর্তনগুলি হাইলাইট করা হয়েছে।</p>
+                <a href="#" class="card-link">সম্পূর্ণ প্রতিবেদন দেখুন</a>
+            </div>
 
-        <hr style="border-top: 1px solid #FF0000; margin: 30px 0;">
+            <div class="research-card">
+                <div class="card-title">২. মঙ্গলের মাটির খনিজ বিশ্লেষণ</div>
+                <p>রোভারের ড্রিলিং এবং সেন্সর থেকে প্রাপ্ত মাটির নমুনার রাসায়নিক ও খনিজ উপাদানের বিস্তারিত গবেষণা প্রতিবেদন।</p>
+                <a href="#" class="card-link">সম্পূর্ণ প্রতিবেদন দেখুন</a>
+            </div>
 
-        <h2>১. মঙ্গলের তাপমাত্রা ও আর্দ্রতার চরম বৈসাদৃশ্য</h2>
-        
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th style="width: 30%;">গবেষণা ক্ষেত্র</th>
-                    <th style="width: 45%;">বৈজ্ঞানিক তথ্য</th>
-                    <th style="width: 25%;">RedX Rover-এর ভূমিকা</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>দৈনিক তাপমাত্রা চক্র</td>
-                    <td>মঙ্গলের নিরক্ষীয় অঞ্চলে দিনের বেলায় তাপমাত্রা $20^{\circ}C$ (গ্রীষ্মকালে) পর্যন্ত পৌঁছাতে পারে। কিন্তু রাতের বেলা তা $-100^{\circ}C$ বা তারও নিচে নেমে যায়। এই বিশাল পার্থক্যই মঙ্গলের অন্যতম বৈশিষ্ট্য।</td>
-                    <td>রোভারের **তাপমাত্রা সেন্সর** এই চরম পরিবর্তনগুলি নিয়মিত পর্যবেক্ষণ করে।</td>
-                </tr>
-                <tr>
-                    <td>আর্দ্রতার উপস্থিতি</td>
-                    <td>মঙ্গলের বায়ুমণ্ডল অত্যন্ত শুষ্ক, গড় আর্দ্রতা ১% এরও কম। তবে, মেরু অঞ্চলে এবং গভীর গর্তের (craters) ছায়াযুক্ত অঞ্চলে বরফের উপস্থিতির কারণে স্থানীয়ভাবে আর্দ্রতা সামান্য বেশি থাকতে পারে।</td>
-                    <td>রোভারের **আর্দ্রতা সেন্সর** এই স্থানীয় আর্দ্রতার স্পাইক (Spikes)গুলি সনাক্ত করতে সাহায্য করবে।</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <h2>২. বায়ুমণ্ডলীয় অবস্থা ও ধূলিঝড়ের প্রভাব</h2>
-
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th style="width: 30%;">গবেষণা ক্ষেত্র</th>
-                    <th style="width: 45%;">বৈজ্ঞানিক তথ্য</th>
-                    <th style="width: 25%;">RedX Rover-এর ভূমিকা</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>ধূলিঝড়ের কারণ</td>
-                    <td>মঙ্গল গ্রহে প্রায়শই ধূলিঝড় হয়, যা কয়েক সপ্তাহ বা মাস ধরে চলতে পারে। এই ঝড়গুলি সৌর প্যানেলের কার্যকারিতা drastically কমিয়ে দেয় এবং বায়ুমণ্ডলের তাপমাত্রা বাড়িয়ে দেয়।</td>
-                    <td>রোভারের **ভিডিও ক্যামেরা** এবং **তাপমাত্রা সেন্সর** ধূলিঝড়ের গতি, তীব্রতা এবং বায়ুমণ্ডলে এর দীর্ঘস্থায়ী প্রভাব পরিমাপ করবে।</td>
-                </tr>
-                <tr>
-                    <td>বায়ুমণ্ডলীয় চাপ</td>
-                    <td>পৃথিবীর তুলনায় মঙ্গলের বায়ুমণ্ডলীয় চাপ খুবই কম—পৃথিবীর সমুদ্রপৃষ্ঠের চাপের প্রায় ০.৬%। এই ডেটা ভবিষ্যতে মঙ্গলে মানুষের বসতি স্থাপনের জন্য গুরুত্বপূর্ণ তথ্য দেবে।</td>
-                    <td>রোভারের সেন্সরগুলি চাপের ভিন্নতা পরিমাপ করে মঙ্গলের জটিল বায়ুমণ্ডলীয় প্রবাহকে বুঝতে সাহায্য করবে।</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 style="margin-top: 50px;">৩. মঙ্গল গ্রহের সাধারণ তথ্য (Mars Overview)</h2>
-        <div style="max-width: 800px; margin: 0 auto; padding: 20px; border: 1px solid #333; background-color: rgba(50, 50, 50, 0.5); border-radius: 8px;">
-            <p><strong>♦ মঙ্গলের নাম:</strong> প্রাচীন রোমান যুদ্ধদেবতা Mars-এর নামে এর নামকরণ করা হয়েছে।</p>
-            <p><strong>♦ লাল রং-এর কারণ:</strong> মঙ্গলের পৃষ্ঠতলে প্রচুর পরিমাণে আয়রন অক্সাইড (Iron Oxide) বা মরিচা থাকার কারণে গ্রহটিকে লাল দেখায়।</p>
-            <p><strong>♦ গ্র্যাভিটি:</strong> পৃথিবীর মাত্র ৩৮%। অর্থাৎ, পৃথিবীতে আপনার ওজন যদি ১০০ কেজি হয়, মঙ্গলে তা হবে মাত্র ৩৮ কেজি।</p>
-            <p><strong>♦ অলিম্পাস মন্স:</strong> সৌরজগতের বৃহত্তম পর্বত। এর উচ্চতা এভারেস্টের প্রায় তিন গুণ।</p>
-            <p><strong>♦ জলের উপস্থিতি:</strong> মঙ্গলের মেরু অঞ্চলে এবং ভূপৃষ্ঠের নিচে প্রচুর পরিমাণে বরফ বা জলের অস্তিত্ব রয়েছে বলে বিজ্ঞানীরা প্রমাণ পেয়েছেন।</p>
+            <div class="research-card">
+                <div class="card-title">৩. রোভারের পাওয়ার ম্যানেজমেন্ট</div>
+                <p>মিশনের বিভিন্ন পর্যায়ে রোভারের ব্যাটারি দক্ষতা এবং সৌর প্যানেলের কার্যকারিতার উপর ভিত্তি করে তৈরি প্রযুক্তিগত প্রতিবেদন।</p>
+                <a href="#" class="card-link">সম্পূর্ণ প্রতিবেদন দেখুন</a>
+            </div>
+            
         </div>
+        
+        <h2>গবেষণার মূল ডেটা সারণী</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ডেটা পয়েন্ট</th>
+                    <th>গড় মান</th>
+                    <th>সর্বোচ্চ মান</th>
+                    <th>বিশ্লেষণ তারিখ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>পৃষ্ঠের তাপমাত্রা</td>
+                    <td>-45°C</td>
+                    <td>22°C (দিনের বেলায়)</td>
+                    <td>অক্টোবর ২০২৫</td>
+                </tr>
+                <tr>
+                    <td>বায়ুচাপ</td>
+                    <td>610 Pa</td>
+                    <td>630 Pa</td>
+                    <td>অক্টোবর ২০২৫</td>
+                </tr>
+                <tr>
+                    <td>রোভার শক্তি ব্যবহার</td>
+                    <td>450 Wh/Sol</td>
+                    <td>620 Wh/Sol</td>
+                    <td>সেপ্টেম্বর ২০২৫</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p style="text-align: center; margin-top: 30px;">
+            <a href="#" class="card-link" style="width: 200px; margin: 20px auto;">সকল ডেটা ডাউনলোড করুন</a>
+        </p>
 
     </main>
 
     <footer class="footer">
-        <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫।</p>
-        <p class="footer-developer">Developer sadmam and amn </p>
+        <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
+        <p class="footer-developer">Developed by - sadman/p>
     </footer>
 
 </body>
