@@ -3,166 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedX Rover | প্রোজেক্ট বিবরণী</title>
+    <title>RedX Rover | প্রোজেক্ট বিবরণী</title> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FF0000">
+
     <style>
-        /* CSS এর মূল অংশ - থিমের সাথে মিল রেখে */
+        /* বেস স্টাইল */
         body {
             background-image: url('mars_background.jpg'); 
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center center;
-            color: #FFFFFF;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding-top: 90px;
-            line-height: 1.6;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            background-size: cover; background-attachment: fixed;
+            background-position: center center; color: #FFFFFF;
+            font-family: 'Roboto', sans-serif; margin: 0; padding-top: 90px;
+            line-height: 1.6; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
-        
-        /* স্টিকি হেডার এবং নেভিগেশন স্টাইল */
+        /* হেডার ও নেভিগেশন স্টাইল */
         .header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 10px 5%; display: flex;
-            justify-content: space-between; align-items: center;
+            background-color: rgba(0, 0, 0, 0.95); padding: 10px 2%;
+            display: flex; justify-content: space-between; align-items: center;
             border-bottom: 2px solid #FF0000;
         }
         .logo-container { display: flex; align-items: center; }
         .logo-image { height: 45px; margin-right: 10px; }
         .site-title { font-size: 1.6em; font-weight: 700; }
-        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
-        .nav-link:hover { color: #FF0000; }
-        .red-x { color: red; }
-
-        /* মূল কন্টেন্ট এরিয়া */
+        .red-x { color: red; } 
+        nav { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+        .nav-link { 
+            color: #FFFFFF; text-decoration: none; margin: 5px; 
+            padding: 8px 12px; border-radius: 4px; transition: all 0.3s;
+            font-weight: 500; white-space: nowrap; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+        }
+        .nav-link:hover { 
+            color: #000000; background-color: #FF0000; border-color: #FF0000;
+        }
+        .nav-link.active {
+            color: #FFFFFF !important; background-color: #FF0000; border-color: #FF0000;
+        }
         main {
-            padding: 40px 5%;
-            background-color: rgba(0, 0, 0, 0.7);
-            margin: 20px auto;
-            max-width: 1200px;
-            border-radius: 8px;
-            min-height: 70vh;
+            padding: 50px 5%; background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px auto; max-width: 900px; border-radius: 8px;
+            min-height: 60vh; color: #DDDDDD; text-align: left;
         }
         h1 { color: #FF0000; text-align: center; margin-bottom: 30px; }
-
-        /* বাংলা ও ইংরেজি কন্টেন্ট ধারক */
-        .content-container {
-            display: flex;
-            position: relative;
-            padding-bottom: 50px; /* অডিও প্লেয়ারের জন্য জায়গা */
-        }
+        h2 { color: #FF0000; margin-top: 30px; border-bottom: 2px dashed #FF0000; padding-bottom: 5px; }
+        ul { list-style-type: disc; margin-left: 20px; }
+        li { margin-bottom: 10px; }
         
-        /* কেন্দ্রীয় উল্লম্ব বিভাজক (Central Vertical Divider) */
-        .content-container::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 3px; /* দাগের চওড়া */
-            background-color: #FF0000; /* লাল রং */
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-
-        /* কন্টেন্ট কলাম (বাংলা ও ইংরেজি) */
-        .language-column {
-            width: 50%;
-            padding: 0 30px;
-            box-sizing: border-box;
-            z-index: 2; /* বিভাজকের উপর কন্টেন্ট রাখার জন্য */
-        }
-
-        /* হেডিং এবং পয়েন্টের স্টাইল */
-        .language-column h2 {
-            color: #FF6666; /* হালকা লাল */
-            text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 1px dashed rgba(255, 102, 102, 0.3);
-            padding-bottom: 10px;
-        }
-        .section-title {
-            color: #FFFFFF;
-            font-size: 1.4em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            border-left: 5px solid #FF0000;
-            padding-left: 10px;
-        }
-        .section-item {
-            margin-bottom: 15px;
-            padding-left: 15px;
-        }
-        .section-item strong {
-            color: #FFD700; /* সোনালী রং */
-        }
-
-        /* প্রোজেক্টের টেবিল স্টাইল */
-        .project-table {
+        /* টেবিল স্টাইল */
+        .data-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            font-size: 0.9em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-        .project-table th, .project-table td {
-            border: 1px solid #FF0000;
-            padding: 10px;
+        .data-table th, .data-table td {
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            padding: 12px;
             text-align: left;
         }
-        .project-table th {
-            background-color: #333333;
-            color: #FFFFFF;
+        .data-table th {
+            background-color: #FF0000;
+            color: #000000;
+            font-weight: 700;
+            text-shadow: none;
         }
-        .project-table tr:nth-child(even) {
-            background-color: rgba(50, 50, 50, 0.5);
+        .data-table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .data-table tr:hover {
+            background-color: rgba(255, 0, 0, 0.2);
         }
 
-        /* অডিও অপশন */
-        .audio-section {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background-color: rgba(26, 26, 26, 0.9);
-            border-radius: 8px;
-            border: 1px solid #FF0000;
-        }
-        .audio-section h3 {
-            color: #FFFFFF;
-            margin-bottom: 15px;
-        }
-        .audio-player {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            display: block;
-        }
 
         /* ফুটার */
         .footer {
-            background-color: rgba(0, 0, 0, 0.9);
-            text-align: center; padding: 20px;
-            border-top: 1px solid #333333; font-size: 0.9em;
-            color: #AAAAAA;
+            background-color: rgba(0, 0, 0, 0.9); text-align: center; padding: 20px;
+            border-top: 1px solid #333333; font-size: 0.9em; color: #AAAAAA;
         }
         .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
-        
-        /* মোবাইল রেসপনসিভ */
-        @media (max-width: 850px) {
-            .content-container {
-                flex-direction: column; /* কলামগুলো উপর-নিচে চলে আসবে */
-            }
-            .language-column {
-                width: 100%; /* পুরো চওড়া নেবে */
-                padding: 0 10px;
-            }
-            .content-container::before {
-                display: none; /* মোবাইলে লম্বা বিভাজকটি আর দরকার নেই */
-            }
-            .language-column h2 {
-                margin-top: 40px; /* কলামগুলির মধ্যে ব্যবধান */
-            }
+        @media (max-width: 768px) {
+            .header { padding: 10px 10px; }
+            .nav-link { margin: 3px; padding: 6px 8px; font-size: 0.9em; }
+            .logo-image { height: 35px; }
+            .site-title { font-size: 1.4em; }
         }
     </style>
 </head>
@@ -176,254 +102,67 @@
             </div>
         </div>
         <nav>
-            <a href="index.html" class="nav-link">হোম</a>
+            <a href="index.html" class="nav-link">হোম</a> 
             <a href="livedata.html" class="nav-link">লাইভ ডেটা</a>
-            <a href="gallery.html" class="nav-link">গ্যালারি</a>
-            <a href="research.html" class="nav-link">গবেষণা</a>
-            <a href="project_details.html" class="nav-link" style="color: #FF0000;">প্রোজেক্ট বিবরণী</a> <a href="shop.html" class="nav-link">শপ</a>
+            <a href="gallery.html" class="nav-link">গ্যালারি</a> 
+            <a href="research.html" class="nav-link">গবেষণা</a> 
+            <a href="project_details.html" class="nav-link active">প্রোজেক্ট বিবরণী</a> <a href="shop.html" class="nav-link">শপ</a>
             <a href="contact.html" class="nav-link">যোগাযোগ</a>
         </nav>
     </header>
 
     <main>
+        <h1>RedX Rover প্রযুক্তিগত বিবরণী</h1>
+        <p>RedX Rover হলো মঙ্গল গ্রহের পরিবেশগত ডেটা সংগ্রহ এবং কঠিন পরিস্থিতিতে নেভিগেট করার জন্য ডিজাইন করা একটি স্বয়ংক্রিয় রোবোটিক সিস্টেম। এটি আমাদের টিমের বহু মাসের কঠোর গবেষণা ও প্রকৌশলের ফসল।</p>
         
-        <h1>RedX Rover প্রোজেক্ট এবং মঙ্গল গ্রহের বিবরণী</h1>
+        <h2>১. মিশনের উদ্দেশ্য</h2>
+        <ul>
+            <li>মঙ্গল পৃষ্ঠে তাপমাত্রা, বায়ুচাপ এবং ধূলিকণার উপস্থিতি পরিমাপ করা।</li>
+            <li>মাটির নমুনা সংগ্রহ ও প্রাথমিক ভূতাত্ত্বিক বিশ্লেষণ করা।</li>
+            <li>ভবিষ্যৎ মঙ্গল অভিযানের জন্য যোগাযোগ ও নেভিগেশন প্রযুক্তির কার্যকারিতা পরীক্ষা করা।</li>
+        </ul>
+
+        <h2>২. প্রযুক্তিগত মেট্রিক্স</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>উপাদান</th>
+                    <th>বিবরণ</th>
+                    <th>প্রযুক্তিগত তথ্য</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>পাওয়ার সিস্টেম</td>
+                    <td>সৌর প্যানেল ও Li-ion ব্যাটারি</td>
+                    <td>20W সোলার আউটপুট, 5000 mAh ব্যাটারি</td>
+                </tr>
+                <tr>
+                    <td>নেভিগেশন সিস্টেম</td>
+                    <td>GPS মডিউল, ইনফ্রারেড সেন্সর</td>
+                    <td>1 মিটার পর্যন্ত নির্ভুলতা</td>
+                </tr>
+                <tr>
+                    <td>ক্যামেরা</td>
+                    <td>Tapo 200 (ডেটা সংগ্রহের জন্য)</td>
+                    <td>1080p HD রেজোলিউশন</td>
+                </tr>
+                <tr>
+                    <td>সাসপেনশন</td>
+                    <td>রকার-বগি মেকানিজম</td>
+                    <td>45° পর্যন্ত ঢালে চলাচল ক্ষমতা</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>৩. হার্ডওয়্যার ও সফটওয়্যার</h2>
+        <p>রোভারটির মস্তিষ্ক হিসেবে ব্যবহৃত হয়েছে **Raspberry Pi 4**, যা পাইথন-ভিত্তিক কোড দ্বারা চালিত। ডেটা কমিউনিকেশনের জন্য 2.4 GHz ওয়্যারলেস মডিউল ব্যবহার করা হয়।</p>
         
-        <div class="content-container">
-            
-            <div class="language-column">
-                <h2>বাংলা বিবরণ</h2>
-                
-                <h3 class="section-title">🪐 মঙ্গল গ্রহ সম্পর্কে বিস্তারিত তথ্য</h3>
-                
-                <div class="section-item">
-                    <p><strong>🔹 ১. মৌলিক তথ্য (Basic Facts)</strong></p>
-                    <ul>
-                        <li>ইংরেজি নাম: Mars</li>
-                        <li>বাংলা নাম: মঙ্গল গ্রহ</li>
-                        <li>সূর্য থেকে অবস্থান: চতুর্থ গ্রহ</li>
-                        <li>গড় দূরত্ব সূর্য থেকে: প্রায় ২২.৮ কোটি কিলোমিটার</li>
-                        <li>ব্যাস (Diameter): প্রায় ৬,৭৯২ কিলোমিটার (পৃথিবীর প্রায় অর্ধেক)</li>
-                        <li>ভর (Mass): পৃথিবীর ১০.৭%</li>
-                        <li>আয়তন: পৃথিবীর প্রায় ১৫%</li>
-                        <li>মাধ্যাকর্ষণ শক্তি: পৃথিবীর মাধ্যাকর্ষণের ৩৮% (তাই ওজন অনেক কম মনে হবে)</li>
-                    </ul>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 ২. পৃষ্ঠতল (Surface Features)</strong></p>
-                    <p>মঙ্গলের পৃষ্ঠ লালচে রঙের, কারণ এতে প্রচুর লোহার অক্সাইড (iron oxide) বা মরিচা রয়েছে। এটি শুষ্ক, ধূলিময় এবং পাথুরে। এখানে পাহাড়, আগ্নেয়গিরি, উপত্যকা, মেরু বরফঢাকা অঞ্চল ও গর্ত (crater) আছে। পৃথিবীর সবচেয়ে বড় আগ্নেয়গিরি হলো Olympus Mons, যা মঙ্গলে অবস্থিত — এর উচ্চতা প্রায় ২৫ কিমি (এভারেস্টের তিনগুণ)। বৃহত্তম উপত্যকা Valles Marineris, দৈর্ঘ্য প্রায় ৪,০০০ কিমি।</p>
-                </div>
-
-                <div class="section-item">
-                    <p><strong>🔹 ৩. বায়ুমণ্ডল (Atmosphere)</strong></p>
-                    <p>বায়ুমণ্ডল অত্যন্ত পাতলা, পৃথিবীর তুলনায় ১০০ গুণ কম ঘন। প্রধান উপাদান: Carbon dioxide (CO₂) – ৯৫%, Nitrogen (N₂) – ২.৭%, Argon (Ar) – ১.৬%, Oxygen (O₂) – ০.১৩%, Water vapor (H₂O) – খুবই সামান্য। এই পাতলা বায়ুমণ্ডল তাপ ধরে রাখতে পারে না, তাই দিন-রাতের তাপমাত্রার পার্থক্য প্রচুর।</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 ৪. তাপমাত্রা (Temperature)</strong></p>
-                    <p>গড় তাপমাত্রা: -৬০°C। দিনের বেলা: প্রায় ২০°C পর্যন্ত উঠতে পারে। রাতের বেলা: নেমে যায় -১০০°C থেকে -১২৫°C পর্যন্ত। ফলে মঙ্গলে তাপ-সহনশীল যন্ত্রপাতি ও রোবটের ইনসুলেশন খুব গুরুত্বপূর্ণ।</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 ৫. মঙ্গল গ্রহের দিন ও বছর (Time)</strong></p>
-                    <p>একদিন (Sol): ২৪ ঘণ্টা ৩৯ মিনিট ৩৫ সেকেন্ড। এক বছর: ৬৮৭ পৃথিবী দিন। অর্থাৎ, মঙ্গলে দিন পৃথিবীর চেয়ে কিছুটা বড়, আর বছর প্রায় দ্বিগুণ দীর্ঘ।</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 ৬. উপগ্রহ (Moons)</strong></p>
-                    <p>মঙ্গলের দুটি ছোট উপগ্রহ আছে: Phobos (ফোবোস) এবং Deimos (ডেইমোস)। দুটোই পাথুরে ও অনিয়মিত আকৃতির, ধারণা করা হয় এগুলো ধরা পড়া গ্রহাণু (captured asteroids)।</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 ৭. পানি ও বরফ (Water and Ice)</strong></p>
-                    <p>মঙ্গলের মেরু অঞ্চলে বরফের স্তর (Water Ice + Dry Ice) রয়েছে। পৃষ্ঠের নিচে তরল পানি থাকার সম্ভাবনা আছে। অতীতে মঙ্গলে নদী ও হ্রদের মতো প্রবাহ ছিল বলে মনে করা হয়।</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 ৮. শক্তি ও সূর্যালোক (Energy and Light)</strong></p>
-                    <p>মঙ্গলে সূর্যের আলো পৃথিবীর তুলনায় ৪৩% কম। তবে সোলার প্যানেল দিয়ে বিদ্যুৎ উৎপাদন সম্ভব — NASA-এর রোবটগুলো এইভাবেই কাজ করে।</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 ৯. যোগাযোগ ও দূরত্ব (Communication)</strong></p>
-                    <p>পৃথিবী থেকে মঙ্গল পর্যন্ত বার্তা পৌঁছাতে সময় লাগে ৪–২৪ মিনিট (দূরত্বের অবস্থান অনুযায়ী)। তাই রোবটকে স্বয়ংক্রিয়ভাবে কাজ করতে পারে এমন AI সিস্টেম দরকার হয়।</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 ১০. মানব অভিযান ও রোবটিক মিশন (Missions)</strong></p>
-                    <p>প্রথম সফল অভিযান: Mariner 4 (NASA, 1965)। গুরুত্বপূর্ণ মিশনসমূহ: Viking 1 & 2 (1976), Mars Pathfinder (Sojourner Rover, 1997), Spirit & Opportunity (2004), Curiosity Rover (2012), Perseverance Rover (2021), Ingenuity Helicopter।</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 ১১. ভবিষ্যৎ সম্ভাবনা (Future Possibilities)</strong></p>
-                    <p>বিজ্ঞানীরা বিশ্বাস করেন ভবিষ্যতে মানুষ মঙ্গলে বসবাস করতে পারবে। এজন্য কৃত্রিম আবাসস্থল, খাদ্য উৎপাদন ব্যবস্থা, পানি সংগ্রহ ও শক্তি উৎপাদন প্রযুক্তি তৈরি হচ্ছে। SpaceX এবং NASA এই লক্ষ্য নিয়ে কাজ করছে।</p>
-                </div>
-
-                <h3 class="section-title">🚀 RedX Rover প্রোজেক্টের বিস্তারিত গুরুত্বপূর্ণ তথ্য</h3>
-                
-                <p>১. প্রোজেক্টের নাম ও মূল লক্ষ্য (Project Name and Core Goal)</p>
-                <table class="project-table">
-                    <tr><th>ক্ষেত্র</th><th>বিবরণ</th></tr>
-                    <tr><td>প্রোজেক্টের নাম</td><td>RedX Rover</td></tr>
-                    <tr><td>মিশনের লক্ষ্য</td><td>মঙ্গল গ্রহে গিয়ে জলবায়ু, ভূতাত্ত্বিক এবং পরিবেশগত বিশদ তথ্য সংগ্রহ করা এবং সেই তথ্য পৃথিবীতে প্রেরণ করা।</td></tr>
-                    <tr><td>গুরুত্ব</td><td>মঙ্গলের বায়ুমণ্ডল ও মাটির উপাদান, বিশেষ করে প্রাণের অস্তিত্বের সম্ভাব্যতা বা অতীতের জলের উপস্থিতির প্রমাণ খোঁজা।</td></tr>
-                </table>
-
-                <p style="margin-top: 20px;">২. প্রধান প্রযুক্তিগত বৈশিষ্ট্য ও সেন্সর (Key Technical Features and Sensors)</p>
-                <table class="project-table">
-                    <tr><th>ফিচার/উপাদান</th><th>বিবরণ এবং কাজ</th></tr>
-                    <tr><td>তাপমাত্রা সেন্সর</td><td>মঙ্গলের পৃষ্ঠতল এবং বায়ুমণ্ডলের সঠিক তাপমাত্রা পরিমাপ করে।</td></tr>
-                    <tr><td>আর্দ্রতা সেন্সর</td><td>মঙ্গলের অত্যন্ত শুষ্ক বায়ুমণ্ডলে জলীয় বাষ্পের পরিমাণ পরিমাপ করে।</td></tr>
-                    <tr><td>ভিডিও ও অডিও ক্যামেরা</td><td>উচ্চ-রেজোলিউশন ভিডিও/ছবি ধারণ করে এবং উচ্চ-সংবেদনশীল মাইক্রোফোন মঙ্গলের শব্দ রেকর্ড করে।</td></tr>
-                    <tr><td>আলোর ব্যবস্থা</td><td>রাতে বা অন্ধকারাচ্ছন্ন স্থানে অনুসন্ধানের জন্য শক্তিশালী LED লাইট।</td></tr>
-                    <tr><td>স্বয়ংক্রিয় চাকা ও গতিশীলতা</td><td>অল-টেরেন ৬-চাকার সিস্টেম, অসমতল ভূমিতে স্থিতিশীলতা ও গতিশীলতা বজায় রাখে।</td></tr>
-                </table>
-
-                <p style="margin-top: 20px;">৩. নিয়ন্ত্রণ ও কার্যপ্রণালী (Control and Operational Modalities)</p>
-                <table class="project-table">
-                    <tr><th>কার্যপ্রণালী</th><th>বিবরণ</th></tr>
-                    <tr><td>দূর-নিয়ন্ত্রণ</td><td>পৃথিবীর গ্রাউন্ড স্টেশন থেকে রিমোটের মাধ্যমে রোভারটিকে সরাসরি নিয়ন্ত্রণ করা যায়।</td></tr>
-                    <tr><td>স্বয়ংক্রিয় মোড</td><td>রোভারটি নিজেই AI ব্যবহার করে আশেপাশের পরিবেশ বিশ্লেষণ করে এবং স্বাধীনভাবে সিদ্ধান্ত নিতে পারে।</td></tr>
-                    <tr><td>যোগাযোগ ব্যবস্থা</td><td>উচ্চ-ক্ষমতাসম্পন্ন অ্যান্টেনা সংগৃহীত ডেটা, ভিডিও এবং অডিও নির্ভরযোগ্যভাবে প্রেরণ করতে পারে।</td></tr>
-                </table>
-
-                <p style="margin-top: 20px;">৪. প্রোজেক্টের মূল আউটপুটসমূহ (Key Project Outputs and Deliverables)</p>
-                <table class="project-table">
-                    <tr><th>আউটপুট</th><th>উদ্দেশ্য</th></tr>
-                    <tr><td>সংগৃহীত ডেটা সেট</td><td>তাপমাত্রা, আর্দ্রতা এবং ভূতাত্ত্বিক উপাদানের ডেটা যা বৈজ্ঞানিক গবেষণায় ব্যবহৃত হবে।</td></tr>
-                    <tr><td>মাল্টিমিডিয়া ফাইল</td><td>জনসাধারণের আগ্রহের জন্য উচ্চমানের ভিডিও এবং ছবি।</td></tr>
-                    <tr><td>প্রকাশিত ওয়েবসাইট</td><td>(RedX Rover)-এর অফিসিয়াল প্ল্যাটফর্ম, যেখানে লাইভ ডেটা ও তথ্য থাকবে।</td></tr>
-                    <tr><td>বাণিজ্যিক পণ্য (Shop)</td><td>মিশনের প্রচার এবং অর্থ সংগ্রহের জন্য টি-শার্ট, ক্যাপ, জার্সির মতো ব্র্যান্ডেড পণ্য।</td></tr>
-                </table>
-            </div> <div class="language-column">
-                <h2>English Description</h2>
-
-                <h3 class="section-title">🪐 Detailed Information About Mars</h3>
-                
-                <div class="section-item">
-                    <p><strong>🔹 1. Basic Facts</strong></p>
-                    <ul>
-                        <li>English Name: Mars</li>
-                        <li>Bengali Name: মঙ্গল গ্রহ (Mongol Groho)</li>
-                        <li>Position from Sun: Fourth planet</li>
-                        <li>Average Distance from Sun: Approx. 228 million kilometers</li>
-                        <li>Diameter: Approx. 6,792 kilometers (about half of Earth's)</li>
-                        <li>Mass: 10.7% of Earth's Mass</li>
-                        <li>Volume: Approx. 15% of Earth's Volume</li>
-                        <li>Gravity: 38% of Earth's gravity (Weight will feel much less)</li>
-                    </ul>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 2. Surface Features</strong></p>
-                    <p>Mars' surface is reddish due to the high amount of **iron oxide (rust)** present. It is dry, dusty, and rocky. It features mountains, volcanoes, valleys, polar ice caps, and craters. **Olympus Mons**, the largest volcano in the Solar System, is on Mars—its height is about 25 km (three times Mount Everest). The largest canyon is **Valles Marineris**, about 4,000 km long.</p>
-                </div>
-
-                <div class="section-item">
-                    <p><strong>🔹 3. Atmosphere</strong></p>
-                    <p>The atmosphere is extremely thin, about 100 times less dense than Earth's. **Primary components:** Carbon dioxide (CO₂) – 95%, Nitrogen (N₂) – 2.7%, Argon (Ar) – 1.6%, Oxygen (O₂) – 0.13%, Water vapor (H₂O) – trace amounts. This thin atmosphere cannot retain heat, resulting in massive temperature differences between day and night.</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 4. Temperature</strong></p>
-                    <p>Average Temperature: -60°C. Daytime: Can rise up to approx. 20°C. Nighttime: Drops to -100°C to -125°C. Therefore, insulation for heat-tolerant equipment and robots is very important on Mars.</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 5. Martian Day and Year (Time)</strong></p>
-                    <p>One Day (Sol): 24 hours, 39 minutes, 35 seconds. One Year: 687 Earth days. That is, a day on Mars is slightly longer than on Earth, and a year is nearly twice as long.</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 6. Moons</strong></p>
-                    <p>Mars has two small moons: 1. **Phobos** and 2. **Deimos**. Both are rocky and irregularly shaped, believed to be captured asteroids.</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 7. Water and Ice</strong></p>
-                    <p>Water ice layers (Water Ice + Dry Ice) exist at Mars' polar regions. There is a possibility of liquid water beneath the surface. It is believed that rivers and lakes flowed on Mars in the past.</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 8. Energy and Light</strong></p>
-                    <p>Solar light on Mars is 43% less intense than on Earth. However, electricity generation is possible with solar panels—NASA's robots operate this way.</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 9. Communication and Distance</strong></p>
-                    <p>Messages take 4–24 minutes to travel from Earth to Mars (depending on orbital distance). Therefore, robots require AI systems capable of autonomous operation.</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 10. Human and Robotic Missions</strong></p>
-                    <p>First successful mission: Mariner 4 (NASA, 1965). Key missions include: Viking 1 & 2 (1976), Mars Pathfinder (Sojourner Rover, 1997), Spirit & Opportunity (2004), Curiosity Rover (2012), Perseverance Rover (2021), Ingenuity Helicopter.</p>
-                </div>
-                
-                <div class="section-item">
-                    <p><strong>🔹 11. Future Possibilities</strong></p>
-                    <p>Scientists believe humans will be able to live on Mars in the future. Technologies are being developed for artificial habitats, food production systems, water harvesting, and energy generation. SpaceX and NASA are working towards this goal.</p>
-                </div>
-
-                <h3 class="section-title">🚀 RedX Rover Project Detailed Important Information</h3>
-                
-                <p>1. Project Name and Core Goal</p>
-                <table class="project-table">
-                    <tr><th>Field</th><th>Description</th></tr>
-                    <tr><td>Project Name</td><td>RedX Rover</td></tr>
-                    <tr><td>Mission Goal</td><td>To collect detailed climatic, geological, and environmental data on Mars and transmit that information to Earth.</td></tr>
-                    <tr><td>Importance</td><td>To search for evidence of past water presence or the potential for life, by analyzing the Martian atmosphere and soil composition.</td></tr>
-                </table>
-
-                <p style="margin-top: 20px;">2. Key Technical Features and Sensors</p>
-                <table class="project-table">
-                    <tr><th>Feature/Component</th><th>Description and Function</th></tr>
-                    <tr><td>Temperature Sensor</td><td>Measures the precise temperature of the Martian surface and atmosphere.</td></tr>
-                    <tr><td>Humidity Sensor</td><td>Measures the amount of water vapor (humidity) in the extremely dry Martian atmosphere.</td></tr>
-                    <tr><td>Video & Audio Camera</td><td>Captures high-resolution (HD/4K) videos and images, while high-sensitivity microphones record atmospheric sound.</td></tr>
-                    <tr><td>Lighting System</td><td>Uses powerful, energy-efficient LED lights for exploration in dark areas like craters or at night.</td></tr>
-                    <tr><td>Autonomous Wheels & Mobility</td><td>All-Terrain 6-wheel system maintains stability and mobility on Mars' uneven and rocky terrain.</td></tr>
-                </table>
-
-                <p style="margin-top: 20px;">3. Control and Operational Modalities</p>
-                <table class="project-table">
-                    <tr><th>Modality</th><th>Description</th></tr>
-                    <tr><td>Remote Control</td><td>The rover can be directly controlled via remote from Earth's ground station, used for specific, necessary maneuvers.</td></tr>
-                    <tr><td>Autonomous Mode</td><td>The rover uses Artificial Intelligence (AI) to analyze its surroundings, identify obstacles, and make independent decisions to fulfill specific scientific objectives.</td></tr>
-                    <tr><td>Communication System</td><td>High-power antennae are used to reliably transmit collected data, video, and audio back to Earth's ground station.</td></tr>
-                </table>
-
-                <p style="margin-top: 20px;">4. Key Project Outputs and Deliverables</p>
-                <table class="project-table">
-                    <tr><th>Output</th><th>Purpose</th></tr>
-                    <tr><td>Collected Data Set</td><td>Data on temperature, humidity, and geological components, used for scientific research.</td></tr>
-                    <tr><td>Multimedia Files</td><td>High-quality videos and images for public engagement and scientific study.</td></tr>
-                    <tr><td>Published Website</td><td>The official (RedX Rover) platform containing live data, images, and all mission-related information (Managed by Developer Nishan).</td></tr>
-                    <tr><td>Commercial Products (Shop)</td><td>Branded merchandise like T-shirts, caps, and jerseys for mission promotion and fundraising.</td></tr>
-                </table>
-            </div> </div> <div class="audio-section">
-            <h3>🎵 RedX Rover Theme Music</h3>
-            <p style="color: #AAAAAA; margin-bottom: 15px;">Experience the mission with our custom soundtrack</p>
-            <audio controls class="audio-player">
-                <source src="Music/song.ogg" type="audio/ogg">https://github.com/Saadman-11/RedX-Rover/pulse
-                <source src="Music/song.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio><audio controls style="width: 100%; margin-top: 15px;">
-  <source src="project_audio_report.mp3" type="audio/mpeg">
-  আপনার ব্রাউজার অডিও উপাদান সমর্থন করে না।
-</audio>
-        </div>
-
-    </main><div style="margin: 40px auto; max-width: 600px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 8px; border: 1px solid #FF0000;">
-    <h2 style="color: #FFFFFF; margin-top: 0; text-align: center;">মিশনের অডিও বিবরণী</h2>
-    <p style="text-align: center; color: #CCCCCC;">আমাদের প্রোজেক্টের উদ্দেশ্য সম্পর্কে একটি সংক্ষিপ্ত অডিও শুনুন।</p>
-
-    
-</div>
+    </main>
 
     <footer class="footer">
         <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
-        <p class="footer-developer">Developer sadman </p>
+        <p class="footer-developer">Developed by - AMN and S</p>
     </footer>
 
 </body>
