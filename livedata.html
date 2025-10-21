@@ -3,104 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedX Rover | লাইভ ডেটা</title>
+    <title>RedX Rover | লাইভ ডেটা</title> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FF0000">
+
     <style>
-        /* CSS এর মূল অংশ - থিমের সাথে মিল রেখে */
+        /* বেস স্টাইল */
         body {
             background-image: url('mars_background.jpg'); 
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center center;
-            color: #FFFFFF;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding-top: 90px;
-            line-height: 1.6;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            background-size: cover; background-attachment: fixed;
+            background-position: center center; color: #FFFFFF;
+            font-family: 'Roboto', sans-serif; margin: 0; padding-top: 90px;
+            line-height: 1.6; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
-        
-        /* স্টিকি হেডার এবং নেভিগেশন স্টাইল */
+        /* হেডার ও নেভিগেশন স্টাইল */
         .header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 10px 5%; display: flex;
-            justify-content: space-between; align-items: center;
+            background-color: rgba(0, 0, 0, 0.95); padding: 10px 2%;
+            display: flex; justify-content: space-between; align-items: center;
             border-bottom: 2px solid #FF0000;
         }
         .logo-container { display: flex; align-items: center; }
         .logo-image { height: 45px; margin-right: 10px; }
         .site-title { font-size: 1.6em; font-weight: 700; }
-        .nav-link { color: #FFFFFF; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
-        .nav-link:hover { color: #FF0000; }
-        .red-x { color: red; }
-
-        /* মূল কন্টেন্ট এরিয়া */
+        .red-x { color: red; } 
+        nav { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+        .nav-link { 
+            color: #FFFFFF; text-decoration: none; margin: 5px; 
+            padding: 8px 12px; border-radius: 4px; transition: all 0.3s;
+            font-weight: 500; white-space: nowrap; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+        }
+        .nav-link:hover { 
+            color: #000000; background-color: #FF0000; border-color: #FF0000;
+        }
+        .nav-link.active {
+            color: #FFFFFF !important; background-color: #FF0000; border-color: #FF0000;
+        }
         main {
-            padding: 40px 5%;
-            background-color: rgba(0, 0, 0, 0.7);
-            margin: 20px auto;
-            max-width: 1000px;
+            padding: 50px 5%; background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px auto; max-width: 1100px; border-radius: 8px;
+            min-height: 60vh; color: #DDDDDD; text-align: center;
+        }
+        h1, h2 { color: #FF0000; text-align: center; }
+        
+        /* লাইভ ডেটা কার্ড স্টাইল */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .data-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
             border-radius: 8px;
-            min-height: 70vh;
+            text-align: center;
+            border: 2px solid #FF0000;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
         }
-        h1, h2 { color: #FF0000; text-align: center; margin-bottom: 30px; }
-
-        /* লাইভ ডেটা সেকশন */
-        .data-grid { 
-            display: flex; 
-            justify-content: space-around; 
-            gap: 30px; 
-            margin-top: 40px; 
+        .data-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin: 5px 0;
+            text-shadow: 0 0 5px #FF0000;
         }
-        .data-box {
-            background-color: rgba(26, 26, 26, 0.8);
-            padding: 30px; border-radius: 10px;
-            text-align: center; border: 2px solid #FF0000;
-            flex: 1; 
-            min-width: 250px;
-        }
-        .data-value { font-size: 4em; color: #FF0000; font-weight: 700; margin: 15px 0; }
-        .data-label { color: #AAAAAA; font-size: 1.2em; }
-        
-        /* ক্যামেরা ভিউ বক্স */
-        .camera-view {
-            background-color: rgba(51, 51, 51, 0.8);
-            height: 450px; margin-top: 50px;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 1.5em; border-radius: 8px; border: 1px solid #777;
-        }
-        
-        /* মোবাইলের জন্য রেসপনসিভ CSS: যখন স্ক্রিনের চওড়া 768px এর কম হবে */
-        @media (max-width: 768px) {
-            .header {
-                padding: 10px 20px; 
-            }
-            .data-grid {
-                flex-direction: column; 
-                gap: 20px; 
-            }
-            .data-box {
-                min-width: auto; 
-                padding: 20px; 
-            }
-            .data-value {
-                font-size: 3em; 
-            }
-            .camera-view {
-                height: 250px; 
-            }
+        .data-label {
+            font-size: 0.9em;
+            color: #AAAAAA;
         }
 
         /* ফুটার */
         .footer {
-            background-color: rgba(0, 0, 0, 0.9);
-            text-align: center; padding: 20px;
-            border-top: 1px solid #333333; font-size: 0.9em;
-            color: #AAAAAA;
+            background-color: rgba(0, 0, 0, 0.9); text-align: center; padding: 20px;
+            border-top: 1px solid #333333; font-size: 0.9em; color: #AAAAAA;
         }
         .footer-developer { color: #FF0000; margin-top: 10px; font-weight: 700; }
+        @media (max-width: 768px) {
+            .header { padding: 10px 10px; }
+            .nav-link { margin: 3px; padding: 6px 8px; font-size: 0.9em; }
+            .logo-image { height: 35px; }
+            .site-title { font-size: 1.4em; }
+        }
     </style>
 </head>
 <body>
@@ -113,10 +100,10 @@
             </div>
         </div>
         <nav>
-            <a href="index.html" class="nav-link">হোম</a>
-            <a href="livedata.html" class="nav-link" style="color: #FF0000;">লাইভ ডেটা</a>
-            <a href="gallery.html" class="nav-link">গ্যালারি</a> 
+            <a href="index.html" class="nav-link">হোম</a> 
+            <a href="livedata.html" class="nav-link active">লাইভ ডেটা</a> <a href="gallery.html" class="nav-link">গ্যালারি</a> 
             <a href="research.html" class="nav-link">গবেষণা</a> 
+            <a href="inventors.html" class="nav-link">উদ্ভাবক</a> 
             <a href="project_details.html" class="nav-link">প্রোজেক্ট বিবরণী</a>
             <a href="shop.html" class="nav-link">শপ</a>
             <a href="contact.html" class="nav-link">যোগাযোগ</a>
@@ -124,37 +111,41 @@
     </header>
 
     <main>
+        <h1>RedX Rover লাইভ ডেটা ও মনিটরিং</h1>
+        <p>রোভার থেকে সংগৃহীত রিয়েল-টাইম পরিবেশগত ও প্রযুক্তিগত সেন্সর রিডিং নিচে দেখুন।</p>
         
-        <h1>সরাসরি রোভার স্ট্যাটাস</h1>
-        <p style="text-align: center; color: #AAAAAA; font-size: 1.1em;">মঙ্গলের পৃষ্ঠ থেকে রিয়েল-টাইম সেন্সর ডেটা</p>
-        
+        <h2>রিয়েল-টাইম সেন্সর রিডিং</h2>
         <div class="data-grid">
-            <div class="data-box">
-                <h2>মঙ্গলের তাপমাত্রা</h2>
-                <p class="data-value">-48°C</p>
-                <p class="data-label">সর্বশেষ আপডেট: ০.৫ সেকেন্ড আগে</p>
+            
+            <div class="data-card">
+                <div class="data-label">তাপমাত্রা (Temperature)</div>
+                <div class="data-value" id="temp_value">25.5°C</div>
             </div>
-            <div class="data-box">
-                <h2>বায়ুমণ্ডলের আর্দ্রতা</h2>
-                <p class="data-value">0.9%</p>
-                <p class="data-label">মঙ্গলের বায়ুমণ্ডলীয় অবস্থা</p>
+
+            <div class="data-card">
+                <div class="data-label">আর্দ্রতা (Humidity)</div>
+                <div class="data-value" id="humidity_value">45%</div>
             </div>
-            <div class="data-box">
-                <h2>ব্যাটারি স্ট্যাটাস</h2>
-                <p class="data-value">85%</p>
-                <p class="data-label">সৌর প্যানেল চার্জিং</p>
+
+            <div class="data-card">
+                <div class="data-label">ব্যাটারি স্থিতি (Battery)</div>
+                <div class="data-value" id="battery_value">85%</div>
             </div>
+            
+            <div class="data-card">
+                <div class="data-label">রোভারের গতি (Speed)</div>
+                <div class="data-value" id="speed_value">0.5 m/s</div>
+            </div>
+
         </div>
 
-        <h2 style="text-align: center; margin-top: 50px; color: #FFFFFF;">রোভারের অবস্থান (মানচিত্র)</h2>
-        <div class="camera-view">
-            <p style="color: #AAAAAA;">[মঙ্গলের ম্যাপে রোভারের অবস্থান এখানে যুক্ত হবে]</p>
-        </div>
-    </main>
+        <p style="margin-top: 30px; font-size: 0.9em; color: #999999;">শেষ ডেটা আপডেট হয়েছে: 2025-10-21, 11:30 PM</p>
+        
+        </main>
 
     <footer class="footer">
         <p>RedX Rover মিশন। সর্বস্বত্ব সংরক্ষিত &copy; ২০২৫। | মঙ্গলের পথে নতুন দিগন্ত।</p>
-        <p class="footer-developer">Developer sadman and amn </p>
+        <p class="footer-developer">Developed by - AMN and S</p>
     </footer>
 
 </body>
